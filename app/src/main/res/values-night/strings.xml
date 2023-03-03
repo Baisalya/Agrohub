@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="onboarding_text">ONbording</string>
+    <string name="onboarding_text">Onbording</string>
     <string name="skip_btn">skip</string>
     <string name="Prev_btn">Prev</string>
 </resources>
