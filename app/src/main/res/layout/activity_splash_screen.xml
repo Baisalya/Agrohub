@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splash_screen_layout"
+    android:background="@drawable/splash_screen_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreen">
+
+    <ImageView
+        android:layout_width="344dp"
+        android:layout_height="209dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="259dp"
+        android:src="@drawable/leaf">
+
+    </ImageView>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:text="@string/app_name">
+        android:layout_above="@+id/progressBar"
+        android:layout_marginBottom="199dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textSize="50dp"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints">
 
     </TextView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="41dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progressbar" />
+
+
+</RelativeLayout>

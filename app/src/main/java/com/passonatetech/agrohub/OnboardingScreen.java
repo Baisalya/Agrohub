@@ -74,10 +74,10 @@ Button prevbtn,nextbtn,skipbtn;
             dots[i]=new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.purple_200,getApplicationContext().getTheme()));
+            dots[i].setTextColor(getResources().getColor(R.color.inactive,getApplicationContext().getTheme()));
             dotLayout.addView(dots[i]);
         }
-        dots[position].setTextColor(getResources().getColor(R.color.purple_500,getApplicationContext().getTheme()));
+        dots[position].setTextColor(getResources().getColor(R.color.active,getApplicationContext().getTheme()));
     }
     ViewPager.OnPageChangeListener viewListner=new ViewPager.OnPageChangeListener() {
         @Override
