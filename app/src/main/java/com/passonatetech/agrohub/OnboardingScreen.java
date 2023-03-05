@@ -41,9 +41,7 @@ Button prevbtn,nextbtn,skipbtn;
                 if(getItem(0)<3){
                     AgroSliderViewPager.setCurrentItem(getItem(1),true);
                 }else {
-                    Intent intent=new Intent(OnboardingScreen.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    activity();
                 }
             }
 
@@ -52,9 +50,7 @@ Button prevbtn,nextbtn,skipbtn;
         skipbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(OnboardingScreen.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+                activity();
             }
         });
         //for viwpager
@@ -103,5 +99,11 @@ Button prevbtn,nextbtn,skipbtn;
     //method for give the position of viewItem
     private int getItem(int i){
         return AgroSliderViewPager.getCurrentItem()+i;
+    }
+    //method for skip and last next viewer page
+    private void activity() {
+        Intent intent = new Intent(OnboardingScreen.this, RegistrationActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

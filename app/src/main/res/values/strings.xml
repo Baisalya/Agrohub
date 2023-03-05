@@ -4,4 +4,14 @@
     <string name="skip_btn">skip</string>
     <string name="next_btn">Next</string>
     <string name="Prev_btn">Prev</string>
+    <string name="register">Register</string>
+    <string name="password">Enter Your Password</string>
+    <string name="mobileno">phoneno</string>
+    <string name="username">Your Name</string>
+    <!--    regpage strings-->
+    <string-array name="account_types_array">
+        <item>Farmer</item>
+        <item>Organization</item>
+        <item>Expert</item>
+    </string-array>
 </resources>

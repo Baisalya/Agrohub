@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    tools:context=".RegistrationActivity">
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="100dp"
+    android:layout_marginRight="5dp"
+    android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/name"
+        android:hint="@string/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/ic_baseline_person_pin_24"
+        android:layout_marginBottom="30px"
+        android:drawablePadding="20dp"
+        android:importantForAutofill="no"
+        android:padding="20dp"
+        android:textColorHint="@android:color/background_light" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10px">
+
+    </Space>
+    <EditText
+        android:id="@+id/phoneno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/ic_baseline_phone_android_24"
+        android:drawablePadding="20dp"
+        android:hint="@string/mobileno"
+        android:inputType="textEmailAddress"
+        android:padding="20dp"
+        android:textColorHint="@android:color/background_light" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10px">
+
+        </Space>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#30ffffff"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="20dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="20dp"
+        android:textColorHint="@android:color/background_light" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10px">
+
+        </Space>
+        <Spinner
+            android:id="@+id/account_type"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        </Spinner>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10px">
+
+        </Space>
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:text="@string/register">
+
+        </Button>
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
