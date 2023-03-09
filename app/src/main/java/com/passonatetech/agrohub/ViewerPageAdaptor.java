@@ -21,10 +21,10 @@ public class ViewerPageAdaptor extends PagerAdapter {
     };
 
     int heading[]={
-            R.string.onboarding_text,
-            R.string.onboarding_text,
-            R.string.onboarding_text,
-            R.string.onboarding_text,
+            R.string.onboarding_page_1,
+            R.string.onboarding_page_2,
+            R.string.onboarding_page_3,
+            R.string.onboarding_page_4,
     };
     public ViewerPageAdaptor(Context context){
         this.context=context;

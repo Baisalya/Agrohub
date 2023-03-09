@@ -96,7 +96,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void returnlogin() {
-        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, Task.class);
         startActivity(intent);
     }
 //routing
