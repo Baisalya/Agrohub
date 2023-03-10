@@ -4,33 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#47789F"
     tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/calenderview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+       >
+<CalendarView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+</CalendarView>
+    </LinearLayout>
+<!--<LinearLayout
+    android:id="@+id/frgmntview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/calenderview"
+    android:layout_above="@+id/fragment_buttons">
 
 
     <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:name="com.passonatetech.agrohub.Category"
+            android:name="com.passonatetech.agrohub.taskfragment.Category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/fragment_buttons"
             tools:layout="@layout/fragment_category" />
-
-    <LinearLayout
+</LinearLayout>-->
+  <!--  <LinearLayout
         android:id="@+id/fragment_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
-
-
-
 <com.google.android.material.bottomnavigation.BottomNavigationView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
        >
 
@@ -57,5 +71,5 @@
     </LinearLayout>
 
 </com.google.android.material.bottomnavigation.BottomNavigationView>
-</LinearLayout>
+</LinearLayout>-->
 </RelativeLayout>

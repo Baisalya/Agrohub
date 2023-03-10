@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.passonatetech.agrohub.taskfragment.Category;
+import com.passonatetech.agrohub.taskfragment.Details;
+import com.passonatetech.agrohub.taskfragment.createcalender;
+
 public class Task extends AppCompatActivity {
 Button category_btn,Details_btn,calndercrt_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
-        FragmentManager fragmentManager=getSupportFragmentManager();
+/*        FragmentManager fragmentManager=getSupportFragmentManager();
         category_btn=findViewById(R.id.Category);
         Details_btn=findViewById(R.id.Details);
         calndercrt_btn=findViewById(R.id.Calender);
@@ -22,7 +26,7 @@ Button category_btn,Details_btn,calndercrt_btn;
             @Override
             public void onClick(View view) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView,Category.class,null)
+                        .replace(R.id.fragmentContainerView, Category.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
@@ -32,7 +36,7 @@ Button category_btn,Details_btn,calndercrt_btn;
             @Override
             public void onClick(View view) {
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView,Details.class,null)
+                        .replace(R.id.fragmentContainerView, Details.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
@@ -43,12 +47,13 @@ Button category_btn,Details_btn,calndercrt_btn;
             @Override
             public void onClick(View view) {
                 fragmentManager.beginTransaction()
-                      .replace(R.id.fragmentContainerView,createcalender.class,null)
+                      .replace(R.id.fragmentContainerView, createcalender.class,null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
             }
-        });
+        });*/
+
 
     }
 }

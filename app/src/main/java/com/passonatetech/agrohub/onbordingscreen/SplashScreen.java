@@ -1,13 +1,13 @@
-package com.passonatetech.agrohub;
+package com.passonatetech.agrohub.onbordingscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
+
+import com.passonatetech.agrohub.R;
 
 public class SplashScreen extends AppCompatActivity {
     private ProgressBar progressBar;

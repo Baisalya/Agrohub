@@ -1,4 +1,4 @@
-package com.passonatetech.agrohub;
+package com.passonatetech.agrohub.onbordingscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.passonatetech.agrohub.R;
+import com.passonatetech.agrohub.loginsignup.RegistrationActivity;
 
 public class OnboardingScreen extends AppCompatActivity {
 ViewPager AgroSliderViewPager;

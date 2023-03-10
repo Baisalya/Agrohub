@@ -1,4 +1,4 @@
-package com.passonatetech.agrohub;
+package com.passonatetech.agrohub.loginsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.passonatetech.agrohub.R;
+import com.passonatetech.agrohub.Task;
+
 public class RegistrationActivity extends AppCompatActivity {
     private EditText NameEditText;
     private EditText PhoneEditText;
@@ -22,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regestration);
-        //ui objject name assign
+        //ui object name assign
         NameEditText = findViewById(R.id.name);
         PhoneEditText = findViewById(R.id.phoneno);
         PasswordEditText = findViewById(R.id.password);
@@ -64,6 +67,11 @@ public class RegistrationActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             PasswordEditText.setError("Please enter your password");
             return;
+        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Organization") || AccountTypeSpinner.getSelectedItem().toString().equals("Expert")){
+            Toast.makeText(this, "Organisation", Toast.LENGTH_SHORT).show();
+            organisationSelected();
+            return;
+
         }
 
         if (TextUtils.isEmpty(accountType)) {
@@ -97,6 +105,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void returnlogin() {
         Intent intent = new Intent(RegistrationActivity.this, Task.class);
+        startActivity(intent);
+    }
+    private void  organisationSelected(){
+        Intent intent = new Intent(RegistrationActivity.this, OrganizationRegistation.class);
         startActivity(intent);
     }
 //routing

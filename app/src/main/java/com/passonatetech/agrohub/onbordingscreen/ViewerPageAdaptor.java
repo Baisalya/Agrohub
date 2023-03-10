@@ -1,4 +1,4 @@
-package com.passonatetech.agrohub;
+package com.passonatetech.agrohub.onbordingscreen;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.passonatetech.agrohub.R;
 
 public class ViewerPageAdaptor extends PagerAdapter {
     Context context;

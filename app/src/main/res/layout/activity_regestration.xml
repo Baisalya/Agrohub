@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    tools:context=".RegistrationActivity">
+    tools:context=".loginsignup.RegistrationActivity">
 
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
