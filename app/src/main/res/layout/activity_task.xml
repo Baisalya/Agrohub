@@ -1,64 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="#47789F"
-    tools:context=".MainActivity"
+    tools:context=".MainActivity">
 
-    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#D81B60"
-        android:orientation="vertical"
-        >
-
-        <androidx.fragment.app.FragmentContainerView
+    <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="com.passonatetech.agrohub.Category"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_buttons"
+            tools:layout="@layout/fragment_category" />
+
+    <LinearLayout
+        android:id="@+id/fragment_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+
+
 <com.google.android.material.bottomnavigation.BottomNavigationView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:gravity="bottom">
+       >
 
         <Button
             android:id="@+id/Category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Category"
-            />
+            android:text="Category" />
 
         <Button
             android:id="@+id/Details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Details"
-            />
+            android:text="Details" />
 
         <Button
             android:id="@+id/Calender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Calender"
-            />
+            android:text="Calender" />
     </LinearLayout>
 
 </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 </LinearLayout>
+</RelativeLayout>
