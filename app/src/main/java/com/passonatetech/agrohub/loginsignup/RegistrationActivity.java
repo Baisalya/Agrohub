@@ -11,10 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.passonatetech.agrohub.R;
 import com.passonatetech.agrohub.Task;
+import com.passonatetech.agrohub.onbordingscreen.OnboardingScreen;
 import com.passonatetech.agrohub.widgets.AlertBox;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText PasswordEditText;
     private Spinner AccountTypeSpinner;
     private Button registerButton;
+    private TextView alreadyRegister;
     private static final int REQUEST_CODE_ALERT_BOX = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
         PasswordEditText = findViewById(R.id.password);
         AccountTypeSpinner = findViewById(R.id.account_type);
         registerButton = findViewById(R.id.register_button);
+        alreadyRegister=findViewById(R.id.already_registered);
         //for spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.account_types_array, android.R.layout.simple_spinner_item);
@@ -46,7 +50,12 @@ public class RegistrationActivity extends AppCompatActivity {
                 registerUser();
             }
         });
-
+        alreadyRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                returnlogin();
+            }
+        });
 
     }
 
@@ -113,7 +122,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 //Alredy register routes
     private void returnlogin() {
-        Intent intent = new Intent(RegistrationActivity.this, Task.class);
+        Intent intent = new Intent(RegistrationActivity.this, OnboardingScreen.class);
         startActivity(intent);
     }
     //if oganisation route

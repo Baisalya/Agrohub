@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
     tools:context=".loginsignup.RegistrationActivity">
@@ -91,6 +92,18 @@
         </Button>
     </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/already_registered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="Already Registered? Click Here"
+        android:textSize="16sp"
+        android:textColor="@color/btn"
+        android:clickable="true"
+        android:onClick="onAlreadyRegisteredClick" />
 
 
 </LinearLayout>
