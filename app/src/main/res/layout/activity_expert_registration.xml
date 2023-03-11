@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".loginsignup.ExpertRegistration">
+    <TextView
+        android:id="@+id/email_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email address:" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email_text_view"
+        android:inputType="textEmailAddress" />
+    <TextView
+        android:id="@+id/contactinfo_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email_edit_text"
+        android:text="Contact Info:" />
+
+    <EditText
+        android:id="@+id/contactinfo_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactinfo_text_view"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/location_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactinfo_edit_text"
+        android:text="Location:" />
+
+    <EditText
+        android:id="@+id/location_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactinfo_edit_text" />
+
+    <TextView
+        android:id="@+id/expertise_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/location_edit_text"
+        android:text="Areas of expertise:" />
+
+    <RadioGroup
+        android:id="@+id/expertise_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expertise_text_view">
+
+        <RadioButton
+            android:id="@+id/crop_management_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crop management" />
+
+        <RadioButton
+            android:id="@+id/livestock_production_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Livestock production" />
+
+        <RadioButton
+            android:id="@+id/soil_fertility_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soil fertility" />
+
+        <RadioButton
+            android:id="@+id/irrigation_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Irrigation" />
+
+        <RadioButton
+            android:id="@+id/pest_control_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pest control" />
+
+        <RadioButton
+            android:id="@+id/farm_economics_radio_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Farm economics" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/education_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expertise_radio_group"
+        android:text="Education and qualifications:" />
+    <EditText
+        android:id="@+id/education_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/education_text_view"
+        />
+    <TextView
+        android:id="@+id/password_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/education_edit_text"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/password_Edit_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_edit_text"
+        android:inputType="textPassword" />
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/password_Edit_Text"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

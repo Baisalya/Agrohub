@@ -70,12 +70,18 @@ public class RegistrationActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             PasswordEditText.setError("Please enter your password");
             return;
-        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Organization") || AccountTypeSpinner.getSelectedItem().toString().equals("Expert")){
+        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Organization") ){
             orgalert();
             //organisationSelected();
             return;
 
+        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Expert") ){
+            Expertalert() ;
+            //organisationSelected();
+            return;
+
         }
+
 
         if (TextUtils.isEmpty(accountType)) {
             Toast.makeText(this, "Please select your account type", Toast.LENGTH_SHORT).show();
@@ -115,10 +121,16 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent intent = new Intent(RegistrationActivity.this, OrganizationRegistation.class);
         startActivity(intent);
     }
-//Alert box
+//Alert box oga.
 public void orgalert() {
     String message = "Are You Sure !! Sign Up as an Organization";
     Intent intent = new Intent(this, OrganizationRegistation.class);
     AlertBox.showAlert(this, message, intent);
 }
+    //Alert box expert.
+    public void Expertalert() {
+        String message = "Are You Sure !! Sign Up as an Expert";
+        Intent intent = new Intent(this, ExpertRegistration.class);
+        AlertBox.showAlert(this, message, intent);
+    }
 }
