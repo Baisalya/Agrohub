@@ -2,6 +2,7 @@ package com.passonatetech.agrohub.loginsignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.passonatetech.agrohub.R;
 import com.passonatetech.agrohub.Task;
+import com.passonatetech.agrohub.widgets.AlertBox;
 
 public class RegistrationActivity extends AppCompatActivity {
     private EditText NameEditText;
@@ -21,6 +23,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText PasswordEditText;
     private Spinner AccountTypeSpinner;
     private Button registerButton;
+    private static final int REQUEST_CODE_ALERT_BOX = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +71,8 @@ public class RegistrationActivity extends AppCompatActivity {
             PasswordEditText.setError("Please enter your password");
             return;
         }if(AccountTypeSpinner.getSelectedItem().toString().equals("Organization") || AccountTypeSpinner.getSelectedItem().toString().equals("Expert")){
-            Toast.makeText(this, "Organisation", Toast.LENGTH_SHORT).show();
-            organisationSelected();
+            orgalert();
+            //organisationSelected();
             return;
 
         }
@@ -102,15 +105,20 @@ public class RegistrationActivity extends AppCompatActivity {
         returnlogin();
         finish();
     }
-
+//Alredy register routes
     private void returnlogin() {
         Intent intent = new Intent(RegistrationActivity.this, Task.class);
         startActivity(intent);
     }
+    //if oganisation route
     private void  organisationSelected(){
         Intent intent = new Intent(RegistrationActivity.this, OrganizationRegistation.class);
         startActivity(intent);
     }
-//routing
-
+//Alert box
+public void orgalert() {
+    String message = "Are You Sure !! Sign Up as an Organization";
+    Intent intent = new Intent(this, OrganizationRegistation.class);
+    AlertBox.showAlert(this, message, intent);
+}
 }
