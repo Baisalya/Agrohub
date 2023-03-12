@@ -24,8 +24,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText PhoneEditText;
     private EditText PasswordEditText;
     private Spinner AccountTypeSpinner;
-    private Button registerButton;
-    private TextView alreadyRegister;
     private static final int REQUEST_CODE_ALERT_BOX = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +34,8 @@ public class RegistrationActivity extends AppCompatActivity {
         PhoneEditText = findViewById(R.id.phoneno);
         PasswordEditText = findViewById(R.id.password);
         AccountTypeSpinner = findViewById(R.id.account_type);
-        registerButton = findViewById(R.id.register_button);
-        alreadyRegister=findViewById(R.id.already_registered);
+        Button registerButton = findViewById(R.id.register_button);
+        TextView alreadyRegister = findViewById(R.id.already_registered);
         //for spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.account_types_array, android.R.layout.simple_spinner_item);
@@ -120,23 +118,23 @@ public class RegistrationActivity extends AppCompatActivity {
         returnlogin();
         finish();
     }
-//Alredy register routes
+    //Alredy register routes
     private void returnlogin() {
-        Intent intent = new Intent(RegistrationActivity.this, OnboardingScreen.class);
+        Intent intent = new Intent(RegistrationActivity.this, Task.class);
         startActivity(intent);
     }
     //if oganisation route
-    private void  organisationSelected(){
+  /*  private void  organisationSelected(){
         Intent intent = new Intent(RegistrationActivity.this, OrganizationRegistation.class);
         startActivity(intent);
-    }
-//Alert box oga.
+    }*/
+    //Alert box and route for organization.
 public void orgalert() {
     String message = "Are You Sure !! Sign Up as an Organization";
     Intent intent = new Intent(this, OrganizationRegistation.class);
     AlertBox.showAlert(this, message, intent);
 }
-    //Alert box expert.
+    //Alert box and route for  expert.
     public void Expertalert() {
         String message = "Are You Sure !! Sign Up as an Expert";
         Intent intent = new Intent(this, ExpertRegistration.class);

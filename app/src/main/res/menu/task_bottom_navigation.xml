@@ -5,11 +5,15 @@
         android:icon="@drawable/ic_baseline_lock_24"
         android:title="Category" />
     <item
-        android:id="@+id/mm"
+        android:id="@+id/calender"
         android:icon="@drawable/ic_baseline_lock_24"
         android:title="details" />
     <item
-        android:id="@+id/jj"
+        android:id="@+id/Alert"
         android:icon="@drawable/ic_baseline_lock_24"
-        android:title="create calender" />
+        android:title="notification" />
+    <item
+        android:id="@+id/Accountt"
+        android:icon="@drawable/ic_baseline_lock_24"
+        android:title="Account" />
 </menu>
