@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:titleTextColor="@android:color/white"
-
+       app:title="Category"
         app:navigationIcon="@drawable/ic_outline_arrow_back_24"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp" />
@@ -22,7 +22,39 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:layout_marginTop="50dp">
+    android:layout_marginTop="50dp"
+    android:gravity="center">
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="3dp"
+        android:background="@drawable/horizontalstepbar">
+    </TextView>
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/mill">
+    </TextView>
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="3dp"
+        android:background="@drawable/horizontalstepbar">
+    </TextView>
+
+    <TextView
+        android:layout_width="14dp"
+        android:layout_height="15dp"
+        android:background="@drawable/info"></TextView>
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="3dp"
+        android:background="@drawable/horizontalstepbar">
+    </TextView>
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/date">
+    </TextView>
+
 
 </LinearLayout>
     <LinearLayout
@@ -50,8 +82,16 @@
 
         </Button>
 
-    </LinearLayout>
 
+    </LinearLayout>
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="2.6in"
+        android:background="@drawable/index"
+        android:dateTextAppearance="@style/MyCalendarViewStyle"
+        android:headerTextAppearance="@style/MyCalendarViewStyle"
+        android:layout_marginTop="50px">
+    </CalendarView>
 
 
 </LinearLayout>
