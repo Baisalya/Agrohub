@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/cancel_buttonn"
+        android:layout_width="31dp"
+        android:layout_height="28dp"
+        android:layout_gravity="end|top"
+        android:background="@drawable/closebtn" />
+    <TextView
+        android:id="@+id/message_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <Button
+            android:id="@+id/createnew_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Create New"
+            android:textSize="12sp"
+            android:textStyle="bold">
+
+        </Button>
+        <Space
+            android:layout_width="6sp"
+            android:layout_height="0sp"/>
+        <Button
+            android:id="@+id/selectexisting_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Select Existing"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:enabled="false">
+
+        </Button>
+
+
+    </LinearLayout>
+</LinearLayout>
