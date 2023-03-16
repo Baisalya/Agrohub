@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.passonatetech.agrohub.R;
 import com.passonatetech.agrohub.Task;
@@ -26,6 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText PasswordEditText;
     private Spinner AccountTypeSpinner;
     private static final int REQUEST_CODE_ALERT_BOX = 1;
+    VideoView videoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,19 @@ public class RegistrationActivity extends AppCompatActivity {
         AccountTypeSpinner = findViewById(R.id.account_type);
         Button registerButton = findViewById(R.id.register_button);
         TextView alreadyRegister = findViewById(R.id.already_registered);
+        /*** background   video        ****/
+        videoView=findViewById(R.id.videoview);
+        String path="android.resource://com.passonatetech.agrohub/"+R.raw.regdvdo;
+        Uri u=Uri.parse(path);
+        videoView.setVideoURI(u);
+        videoView.start();
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
         //for spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.account_types_array, android.R.layout.simple_spinner_item);
