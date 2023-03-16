@@ -1,6 +1,10 @@
 # Agrohub
 
 
+## Contributors
+
+- [Contributor 1](https://github.com/baisalya)
+- [Contributor 2](https://github.com/Rituparna)
 
 
 Farmer's Crop Expert: Season-wise Crop Selection and Reminder App
