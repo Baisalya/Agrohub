@@ -35,7 +35,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"
+
                 android:background="#30ffffff"
                 android:drawableStart="@drawable/ic_baseline_person_pin_24"
                 android:drawablePadding="20dp"
@@ -46,7 +46,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="10px">
+                android:layout_height="20px">
 
             </Space>
 
@@ -64,7 +64,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="10px">
+                android:layout_height="20px">
 
             </Space>
 
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardv"
         android:layout_marginTop="250dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
         <TextView
             android:id="@+id/already_registered"
@@ -125,7 +125,34 @@
             android:onClick="onAlreadyRegisteredClick"
             android:text="Already Registered? Click Here"
             android:textColor="@color/btn"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/or_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:clickable="true"
+            android:text="Or sign up with"
+            android:textColor="@color/btn"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/icons"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        >
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/google"
+            android:padding="8dp"
+            android:scaleType="center"
+            android:layout_margin="50dp"
+
+            ></ImageButton>
     </LinearLayout>
 
 
