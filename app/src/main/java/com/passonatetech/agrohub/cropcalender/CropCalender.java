@@ -32,7 +32,7 @@ public class CropCalender extends AppCompatActivity {
     }
     public void clickondate() {
         String message = "Select One";
-        Intent intent = new Intent(this, ExpertRegistration.class);
+        Intent intent = new Intent(this, Category.class);
         Intent intent1=new Intent(this,ExpertRegistration.class);
         Createprojectpopup.showAlert(this, message, intent,intent1);
 

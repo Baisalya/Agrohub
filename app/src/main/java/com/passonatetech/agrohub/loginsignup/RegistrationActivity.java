@@ -134,12 +134,16 @@ public class RegistrationActivity extends AppCompatActivity {
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
 
         // Finish the activity and return to the login screen
-        returnlogin();
+        register();
         finish();
     }
     //Alredy register routes
+    private void register() {
+        Intent intent = new Intent(RegistrationActivity.this, CropCalender.class);
+        startActivity(intent);
+    }
     private void returnlogin() {
-        Intent intent = new Intent(RegistrationActivity.this, DetailsActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(intent);
     }
     //if oganisation route
