@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="season_array" />
+    <string-array name="crop_type_array" />
+    <string-array name="crop_name_array" />
+</resources>

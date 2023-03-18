@@ -5,4 +5,10 @@
     <string name="Prev_btn">Prev</string>
     <string name="register">Register</string>
     <string name="organization_type_prompt" />
+    <string name="select_season" />
+    <string name="select_crop_type" />
+    <string name="first">Join our community of farmers and experts to enhance your farming experience. Get access to a wide range of tools and resources that will help you improve your crop yield and boost your profits.</string>
+    <string name="third">Get access to expert advice on farming techniques, pest control, and more through our platform. Connect with other farmers and experts to get answers to all your farming-related queries.</string>
+    <string name="Second">" Plan your farming activities efficiently with our crop calendar. Get information on the best time to plant, harvest and apply fertilizers and pesticides for each crop in your region."</string>
+    <string name="fourth">Stay on top of your farming tasks with our todo list feature. Create a list of tasks to be completed and set reminders to ensure that you never miss an important task.</string>
 </resources>

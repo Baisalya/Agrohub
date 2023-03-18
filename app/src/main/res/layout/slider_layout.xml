@@ -4,34 +4,35 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     app:flow_horizontalAlign="center">
 <ImageView
     android:id="@+id/title_img"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="5dp"
     android:src="@drawable/leaf"/>
 
     <TextView
         android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="cursive"
-        android:textColor="@color/black"
         android:text="hello"
         android:textAlignment="center"
-        android:textSize="60dp"
+        android:textColor="@color/black"
+        android:textSize="36dp"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/description_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:text="hello"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
+
         android:textAlignment="center"/>
 
 </LinearLayout>

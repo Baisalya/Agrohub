@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="seasons">
+        <item>Rabi</item>
+        <item>Kharif</item>
+        <item>Zaid</item>
+    </string-array>
+    <string-array name="In_Rabi">
+        <item>Cereals</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Legumes</item>
+    </string-array>
+    <string-array name="In_Kharif">
+        <item>Cereals</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Seed Plant</item>
+        <item>Medicinal</item>
+    </string-array>
+    <string-array name="In_zaid">
+        <item>Cereals</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Legumes</item>
+        <item>Cash Crops</item>
+    </string-array>
+<!--in Rabi types of -->
+    <string-array name="In_Rabi_vegetables">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Rabi_Cereals">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Rabi_Fruits">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Rabi_Legumes">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+<!--    In Kharif-->
+    <string-array name="In_Kharif_Cereals">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Kharif_vegetables">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Kharif_Fruits">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Kharif_Legumes">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Kharif_SeedPlants">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Kharif_Medicinal">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <!--    In Zaid-->
+    <string-array name="In_Zaid_Cereals">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Zaid_vegetables">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Zaid_Fruits">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Zaid_Legumes">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Zaid_SeedPlants">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+    <string-array name="In_Zaid_CashCrops">
+        <item>Kale</item>
+        <item>Collard greens</item>
+        <item>Winter squash</item>
+        <item>Brussels sprouts</item>
+    </string-array>
+
+</resources>

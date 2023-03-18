@@ -16,10 +16,10 @@ import com.passonatetech.agrohub.R;
 public class ViewerPageAdaptor extends PagerAdapter {
     Context context;
     int images[]={
-            R.drawable.leaf,
-            R.drawable.leaf,
-            R.drawable.leaf,
-            R.drawable.leaf,
+            R.drawable.onboarding1,
+            R.drawable.onboarding2,
+            R.drawable.onbording3,
+            R.drawable.onbording4,
     };
 
     int heading[]={
@@ -32,10 +32,10 @@ public class ViewerPageAdaptor extends PagerAdapter {
         this.context=context;
     }
     int description[]={
-            R.string.app_name,
-            R.string.app_name,
-            R.string.app_name,
-            R.string.app_name,
+            R.string.first,
+            R.string.Second,
+            R.string.third,
+            R.string.fourth,
     };
     @Override
     public int getCount() {

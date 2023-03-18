@@ -20,6 +20,7 @@ import android.widget.VideoView;
 import com.passonatetech.agrohub.R;
 import com.passonatetech.agrohub.Task;
 import com.passonatetech.agrohub.cropcalender.CropCalender;
+import com.passonatetech.agrohub.cropcalender.DetailsActivity;
 import com.passonatetech.agrohub.onbordingscreen.OnboardingScreen;
 import com.passonatetech.agrohub.widgets.AlertBox;
 
@@ -138,7 +139,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
     //Alredy register routes
     private void returnlogin() {
-        Intent intent = new Intent(RegistrationActivity.this, CropCalender.class);
+        Intent intent = new Intent(RegistrationActivity.this, DetailsActivity.class);
         startActivity(intent);
     }
     //if oganisation route
