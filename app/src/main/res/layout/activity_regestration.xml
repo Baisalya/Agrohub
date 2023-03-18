@@ -42,7 +42,8 @@
                 android:hint="@string/username"
                 android:importantForAutofill="no"
                 android:padding="20dp"
-                android:textColorHint="@android:color/background_light" />
+                android:textColorHint="@android:color/background_light"
+                android:inputType="text" />
 
             <Space
                 android:layout_width="match_parent"
@@ -58,7 +59,7 @@
                 android:drawableStart="@drawable/ic_baseline_phone_android_24"
                 android:drawablePadding="20dp"
                 android:hint="@string/mobileno"
-                android:inputType="textEmailAddress"
+                android:inputType="phone"
                 android:padding="20dp"
                 android:textColorHint="@android:color/background_light" />
 
@@ -103,7 +104,7 @@
                 android:id="@+id/register_button"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_marginLeft="150dp"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/register">
 
             </Button>
@@ -113,14 +114,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardv"
-        android:layout_marginTop="250dp"
-        android:orientation="vertical"
+
         android:gravity="center">
         <TextView
             android:id="@+id/already_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:onClick="onAlreadyRegisteredClick"
             android:text="Already Registered? Click Here"
