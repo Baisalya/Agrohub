@@ -85,5 +85,14 @@
 
     </LinearLayout>
 
-
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="121dp"
+        android:layout_height="68dp"
+        android:layout_gravity="end"
+        android:background="@drawable/leaf"
+        android:text="@string/next_btn"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </LinearLayout>
