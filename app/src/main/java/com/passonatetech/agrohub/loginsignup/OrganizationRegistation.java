@@ -22,13 +22,13 @@ public class OrganizationRegistation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_organization_registation);
+        setContentView(R.layout.activity_organization_register_page);
 
         organizationNameEditText = findViewById(R.id.organizationNameEditText);
         organizationTypeSpinner = findViewById(R.id.organizationTypeSpinner);
-        contactPersonNameEditText = findViewById(R.id.contactPersonNameEditText);
+      //  contactPersonNameEditText = findViewById(R.id.contactPersonNameEditText);
         contactPersonPhoneNumberEditText = findViewById(R.id.contactPersonPhoneEditText);
-        organizationAddressEditText = findViewById(R.id.organizationAddressEditText);
+      //  organizationAddressEditText = findViewById(R.id.organizationAddressEditText);
         websiteURLEditText = findViewById(R.id.websiteUrlEditText);
         usernameEditText = findViewById(R.id.usernameEditText);
         passwordEditText = findViewById(R.id.passwordEditText);

@@ -35,8 +35,9 @@
         <item>Etc</item>
     </string-array>
 
-    <string name="select_season" />
-    <string name="select_crop_type" />
+
+    <string name="don_t_have_an_account_click_here">Don\'t have an account? Click Here</string>
+    <string name="already_registered_click_here">Already Registered? Click Here</string>
     <string name="select_crop_name" />
 
 </resources>

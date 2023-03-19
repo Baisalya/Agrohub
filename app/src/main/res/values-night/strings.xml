@@ -11,4 +11,5 @@
     <string name="third">Get access to expert advice on farming techniques, pest control, and more through our platform. Connect with other farmers and experts to get answers to all your farming-related queries.</string>
     <string name="Second">" Plan your farming activities efficiently with our crop calendar. Get information on the best time to plant, harvest and apply fertilizers and pesticides for each crop in your region."</string>
     <string name="fourth">Stay on top of your farming tasks with our todo list feature. Create a list of tasks to be completed and set reminders to ensure that you never miss an important task.</string>
+    <string name="select_crop" />
 </resources>

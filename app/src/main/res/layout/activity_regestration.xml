@@ -29,7 +29,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <EditText
                 android:id="@+id/name"
@@ -111,10 +112,12 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <LinearLayout
+        android:id="@+id/alrd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardv"
-
+        android:layout_marginTop="330dp"
+        android:orientation="vertical"
         android:gravity="center">
         <TextView
             android:id="@+id/already_registered"
@@ -123,14 +126,13 @@
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:onClick="onAlreadyRegisteredClick"
-            android:text="Already Registered? Click Here"
+            android:text="@string/already_registered_click_here"
             android:textColor="@color/btn"
             android:textSize="20sp" />
         <TextView
             android:id="@+id/or_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:clickable="true"
             android:text="Or sign up with"
             android:textColor="@color/btn"
@@ -139,10 +141,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/alrd"
         android:id="@+id/icons"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <ImageButton
             android:layout_width="50dp"
@@ -151,8 +155,7 @@
             android:padding="8dp"
             android:scaleType="center"
             android:layout_margin="50dp"
-
-            ></ImageButton>
+            android:contentDescription="TODO" />
     </LinearLayout>
 
 

@@ -137,14 +137,18 @@ public class RegistrationActivity extends AppCompatActivity {
         register();
         finish();
     }
+
+    /**** Routes methods  ****/
     //Alredy register routes
     private void register() {
         Intent intent = new Intent(RegistrationActivity.this, CropCalender.class);
         startActivity(intent);
+        finish();
     }
     private void returnlogin() {
         Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
     //if oganisation route
   /*  private void  organisationSelected(){

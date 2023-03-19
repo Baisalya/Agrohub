@@ -31,6 +31,7 @@
 <!--        android:drawableLeft="@drawable/ic_baseline_person_outline_24"-->
 <!--        android:drawablePadding="20dp"-->
 <!--        ></EditText>-->
+
     <Spinner
         android:id="@+id/organizationTypeSpinner"
         android:layout_width="match_parent"
@@ -42,9 +43,10 @@
         android:prompt="@string/organization_type_prompt"
         />
     <EditText
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/username"
+        android:id="@+id/organizationNameEditText"
         android:background="#30ffffff"
         android:hint="Organization Name"
         android:textColorHint="@android:color/background_light"
@@ -69,7 +71,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/website"
+        android:id="@+id/websiteUrlEditText"
         android:background="#30ffffff"
         android:hint="Organization Website"
         android:textColorHint="@android:color/background_light"
@@ -81,7 +83,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/name"
+        android:id="@+id/usernameEditText"
         android:background="#30ffffff"
         android:hint="Name"
         android:textColorHint="@android:color/background_light"
@@ -93,7 +95,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/phn"
+        android:id="@+id/contactPersonPhoneEditText"
         android:background="#30ffffff"
         android:hint="Phone Number"
         android:textColorHint="@android:color/background_light"
@@ -105,7 +107,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/passwordEditText"
         android:background="#30ffffff"
         android:hint="Password"
         android:textColorHint="@android:color/background_light"
@@ -117,7 +119,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginbtn"
+        android:id="@+id/signupButton"
         android:text="Submit"
         android:textSize="25dp"
         android:layout_gravity="center"

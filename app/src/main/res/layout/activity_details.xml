@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".cropcalender.DetailsActivity">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
@@ -61,30 +62,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-     <!--   <Spinner
-            android:id="@+id/season_spinner"
-            android:layout_marginTop="60dp"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content">
-        </Spinner>-->
-        <Spinner
-            android:id="@+id/season_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:prompt="@string/select_season" />
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
 
         <Spinner
-            android:id="@+id/crop_type_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:prompt="@string/select_crop_type" />
+            android:id="@+id/season_spinner"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/spinner_background"
+            android:spinnerMode="dropdown"
+            android:prompt="@string/select_season"
+            />
+
+        <Spinner
+            android:id="@+id/types_of_crop_spinner"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_height="25dp"
+            android:prompt="@string/select_crop"
+            android:background="@drawable/spinner_background"
+           />
+
 
         <Spinner
             android:id="@+id/crop_name_spinner"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:prompt="@string/select_crop_name" />
+            android:prompt="@string/select_crop_name"
+            android:visibility="gone"/>
+
 
 
     </LinearLayout>

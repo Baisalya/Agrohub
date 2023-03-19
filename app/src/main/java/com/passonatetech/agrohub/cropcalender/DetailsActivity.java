@@ -32,12 +32,16 @@ public class DetailsActivity extends AppCompatActivity {
     private String[] In_Zaid_Legumes;
     private String[] In_Zaid_SeedPlants;
     private String[] In_Zaid_CashCrops;*/
-
+/**** ****/
+private Spinner seasonspinner,typesofcrops,cropsname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        seasonspinner=findViewById(R.id.season_spinner);
+        typesofcrops=findViewById(R.id.types_of_crop_spinner);
+        cropsname=findViewById(R.id.crop_name_spinner);
 /*        seasonSpinner = findViewById(R.id.season_spinner);
         seasons = getResources().getStringArray(R.array.seasons);
         cropsinrabi = getResources().getStringArray(R.array.In_Rabi);
@@ -75,26 +79,49 @@ public class DetailsActivity extends AppCompatActivity {
 
             }
         });*/
+
         // ArrayAdapter for the season spinner
-        ArrayAdapter<CharSequence> seasonAdapter = ArrayAdapter.createFromResource(
-                this, R.array.season_array, android.R.layout.simple_spinner_item);
-        seasonAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner seasonSpinner = findViewById(R.id.season_spinner);
-        seasonSpinner.setAdapter(seasonAdapter);
+        ArrayAdapter<CharSequence> seasonAdapter  = ArrayAdapter.createFromResource(this,
+                R.array.seasons, android.R.layout.simple_spinner_item);
+        seasonAdapter .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        seasonspinner.setAdapter(seasonAdapter );
+        seasonspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                // Get selected season
+                String season = parent.getItemAtPosition(position).toString();
+                // Create array adapter for item spinner based on selected season
+                ArrayAdapter<CharSequence> itemAdapter;
+                if (season.equals("Rabi")) {
+                    itemAdapter = ArrayAdapter.createFromResource(DetailsActivity.this,
+                            R.array.In_Rabi, android.R.layout.simple_spinner_item);
+                    typesofcrops.setVisibility(View.VISIBLE);
+                } else if (season.equals("Kharif")) {
+                    itemAdapter = ArrayAdapter.createFromResource(DetailsActivity.this,
+                            R.array.In_Kharif, android.R.layout.simple_spinner_item);
+                    typesofcrops.setVisibility(View.VISIBLE);
+                } else {
+                    itemAdapter = ArrayAdapter.createFromResource(DetailsActivity.this,
+                            R.array.In_zaid, android.R.layout.simple_spinner_item);
+                    typesofcrops.setVisibility(View.VISIBLE);
+                }
+                itemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                typesofcrops.setAdapter(itemAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 // ArrayAdapter for the crop type spinner
-        ArrayAdapter<CharSequence> cropTypeAdapter = ArrayAdapter.createFromResource(
-                this, R.array.crop_type_array, android.R.layout.simple_spinner_item);
-        cropTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner cropTypeSpinner = findViewById(R.id.crop_type_spinner);
-        cropTypeSpinner.setAdapter(cropTypeAdapter);
+
 
 // ArrayAdapter for the crop name spinner
-        ArrayAdapter<CharSequence> cropNameAdapter = ArrayAdapter.createFromResource(
-                this, R.array.crop_name_array, android.R.layout.simple_spinner_item);
-        cropNameAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner cropNameSpinner = findViewById(R.id.crop_name_spinner);
-        cropNameSpinner.setAdapter(cropNameAdapter);
+
+
+        /////////////////////////////////////////////////
 
 
     }

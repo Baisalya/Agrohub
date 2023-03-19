@@ -76,7 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:text="Don't have an account? Click Here"
+            android:onClick="createnewaccount"
+            android:text="@string/don_t_have_an_account_click_here"
             android:textColor="@android:color/background_light"
             android:textSize="16sp" />
     </LinearLayout>
