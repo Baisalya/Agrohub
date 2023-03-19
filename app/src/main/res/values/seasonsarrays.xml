@@ -29,44 +29,61 @@
     </string-array>
 <!--in Rabi types of -->
     <string-array name="In_Rabi_vegetables">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Fenugreek</item>
+        <item>Turnip</item>
+        <item>Garlic</item>
+        <item>Lettuce</item>
+        <item>Pea</item>
+        <item>Onion</item>
+        <item>Radish</item>
+        <item>Spinach</item>
+        <item>Sweet Potato</item>
+        <item>Tomato</item>
     </string-array>
     <string-array name="In_Rabi_Cereals">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Barley</item>
+        <item>Bengal Gram</item>
+        <item>Rapeseed</item>
+        <item>Oat</item>
+        <item>Wheat</item>
     </string-array>
     <string-array name="In_Rabi_Fruits">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>orange</item>
+        <item>Almond</item>
+        <item>Banana</item>
+        <item>Ber</item>
+        <item>Date Palm</item>
+        <item>Grapes</item>
+        <item>Grapefruit</item>
+        <item>Kinnow</item>
+        <item>Mango</item>
+        <item>Mulberry</item>
     </string-array>
     <string-array name="In_Rabi_Legumes">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Chickpea</item>
+        <item> Urd Bean</item>
+        <item>Kulthi Bean</item>
+        <item> Lobia (Cowpea)</item>
+        <item> Lentil</item>
+        <item> Mung Bean</item>
+        <item> Pigeon Pea</item>
+        <item> Toria</item>
     </string-array>
 <!--    In Kharif-->
     <string-array name="In_Kharif_Cereals">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Jowar</item>
+        <item>Maize</item>
+        <item>Millets</item>
+        <item>Rice</item>
     </string-array>
     <string-array name="In_Kharif_vegetables">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Bitter Guard (Karela)</item>
+        <item>Bottle Guard</item>
+        <item>Brinjal</item>
+        <item>Chilli</item>
     </string-array>
     <string-array name="In_Kharif_Fruits">
-        <item>Kale</item>
+        <item>Almond</item>
         <item>Collard greens</item>
         <item>Winter squash</item>
         <item>Brussels sprouts</item>
@@ -84,47 +101,50 @@
         <item>Brussels sprouts</item>
     </string-array>
     <string-array name="In_Kharif_Medicinal">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Ashwagandha</item>
+        <item>Tulsi</item>
     </string-array>
     <!--    In Zaid-->
     <string-array name="In_Zaid_Cereals">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Pearl Millet (Bajra)</item>
+        <item>Sorghum (Jowar)</item>
+
     </string-array>
     <string-array name="In_Zaid_vegetables">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Watermelon</item>
+        <item>Muskmelon</item>
+        <item>Cucumber</item>
+        <item>Bitter</item>
+        <item>Gourd</item>
+        <item>pumpkin</item>
+        <item>Brinjal</item>
     </string-array>
     <string-array name="In_Zaid_Fruits">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
     </string-array>
     <string-array name="In_Zaid_Legumes">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Mung Bean</item>
+        <item>Arhar (Pigeon Pea)</item>
+        <item>Masur (Lentil)</item>
+        <item>Gram Crop</item>
     </string-array>
     <string-array name="In_Zaid_SeedPlants">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
     </string-array>
     <string-array name="In_Zaid_CashCrops">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Potato</item>
+        <item>Sunflower</item>
+        <item>Groundnut</item>
+        <item>Sugarcane</item>
+        <item>Tobacco</item>
+        <item>Jute</item>
+        <item>Cotton</item>
     </string-array>
 
 </resources>

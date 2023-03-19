@@ -88,10 +88,12 @@
 
         <Spinner
             android:id="@+id/crop_name_spinner"
+            android:layout_marginTop="20dp"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:prompt="@string/select_crop_name"
-            android:visibility="gone"/>
+            android:background="@drawable/spinner_background"
+            />
 
 
 
