@@ -25,6 +25,7 @@ public class AlertBox {
             @Override
             public void onClick(View v) {
                 context.startActivity(intent);
+
             }
         });
 
