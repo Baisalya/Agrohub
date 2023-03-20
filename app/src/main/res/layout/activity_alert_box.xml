@@ -3,10 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/white"
 
-    android:background="@drawable/popup"
 
     android:padding="20dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup"
+    android:orientation="vertical">
+
 
     <Button
         android:id="@+id/cancel_buttonn"
@@ -21,6 +27,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:textColor="@color/btn"
         android:paddingBottom="20dp" />
     <Space
         android:layout_width="wrap_content"
@@ -40,5 +47,5 @@
         android:text="yes"
         android:textSize="20dp" />
 </LinearLayout>
-
+</LinearLayout>
 </LinearLayout>
