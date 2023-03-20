@@ -89,16 +89,24 @@
         <item>Brussels sprouts</item>
     </string-array>
     <string-array name="In_Kharif_Legumes">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
+        <item>null</item>
     </string-array>
     <string-array name="In_Kharif_SeedPlants">
-        <item>Kale</item>
-        <item>Collard greens</item>
-        <item>Winter squash</item>
-        <item>Brussels sprouts</item>
+        <item>Arhar (Tur)</item>
+        <item>Black</item>
+        <item>Cotton</item>
+        <item>Gram (Urd)</item>
+        <item>Cowpea (Chavala)</item>
+        <item>Green Gram(Moong)</item>
+        <item>Groundnut</item>
+        <item>Guar (Cluster Bean)</item>
+        <item>Moth Bean</item>
+        <item>Sesame (Til)</item>
+        <item>Soybean</item>
+        <item>Fennel (Saunf)</item>
     </string-array>
     <string-array name="In_Kharif_Medicinal">
         <item>Ashwagandha</item>

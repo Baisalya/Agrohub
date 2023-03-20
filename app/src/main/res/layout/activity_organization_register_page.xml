@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/green"
+    android:background="@color/white"
     android:orientation="vertical">
     <TextView
         android:id="@+id/logintitle"
@@ -16,7 +16,7 @@
         android:layout_marginBottom="25dp"
         android:gravity="center"
         android:text="Sign Up"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/purple_500"
         android:textSize="30dp"
         android:textStyle="bold"></TextView>
 <!--    <EditText-->
@@ -36,7 +36,7 @@
         android:id="@+id/organizationTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:entries="@array/organization_types"
@@ -47,75 +47,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/organizationNameEditText"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Organization Name"
-        android:textColorHint="@android:color/background_light"
+        android:textColorHint="@color/ic_launcher_background"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Organization Mail Id"
-        android:textColorHint="@android:color/background_light"
+        android:textColorHint="@color/ic_launcher_background"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/baseline_mail_outline_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/websiteUrlEditText"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Organization Website"
         android:textColorHint="@android:color/background_light"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/baseline_language_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usernameEditText"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Name"
         android:textColorHint="@android:color/background_light"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/contactPersonPhoneEditText"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Phone Number"
         android:textColorHint="@android:color/background_light"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/baseline_phone_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordEditText"
-        android:background="#30ffffff"
+        android:background="#4CAF50"
         android:hint="Password"
         android:textColorHint="@android:color/background_light"
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="20dp"
-        ></EditText>
+        />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -139,8 +139,12 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:text="Already have an account? Click Here"
-            android:textColor="@android:color/background_light"
+            android:textColor="@color/btn"
             android:textSize="16sp" />
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/organisationbg"/>
 
 </LinearLayout>

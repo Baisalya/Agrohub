@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/appbar"
         app:titleTextColor="@android:color/white"
-       app:title="Category"
+       app:title="Crop Calender"
         app:navigationIcon="@drawable/ic_outline_arrow_back_24"
         app:contentInsetStart="0dp"
         app:contentInsetEnd="0dp" />
@@ -22,7 +23,7 @@
     <CalendarView
         android:id="@+id/cropcalender"
         android:layout_width="match_parent"
-        android:layout_height="2.6in"
+        android:layout_height="400dp"
         android:background="@drawable/index"
         android:dateTextAppearance="@style/MyCalendarViewStyle"
 android:weekDayTextAppearance="@style/MyCalendarViewWeekStyle"

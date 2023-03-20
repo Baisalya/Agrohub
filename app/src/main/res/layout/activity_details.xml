@@ -11,7 +11,7 @@
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@drawable/appbar"
         app:titleTextColor="@android:color/white"
         app:title="Details"
         app:navigationIcon="@drawable/ic_outline_arrow_back_24"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/mill">
+            android:background="@drawable/categorystl">
         </TextView>
         <TextView
             android:layout_width="90dp"
@@ -69,11 +69,10 @@
             android:id="@+id/season_spinner"
             android:layout_width="200dp"
             android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:background="@drawable/spinner_background"
             android:spinnerMode="dropdown"
-            android:prompt="@string/select_season"
+
             />
 
         <Spinner
@@ -81,7 +80,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="200dp"
             android:layout_height="25dp"
-            android:prompt="@string/select_crop"
+
             android:background="@drawable/spinner_background"
            />
 
@@ -91,7 +90,7 @@
             android:layout_marginTop="20dp"
             android:layout_width="200dp"
             android:layout_height="25dp"
-            android:prompt="@string/select_crop_name"
+
             android:background="@drawable/spinner_background"
             />
 

@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/splash_screen_layout"
-    android:background="@drawable/splashscreen"
+    android:background="#FFFFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".onbordingscreen.SplashScreen">
 
-  <!--  <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+  <ImageView
+      android:id="@+id/applogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
 
-        android:layout_alignParentEnd="true"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="38dp"
-        android:layout_marginBottom="259dp"
-        android:src="@drawable/logo">
+        android:layout_marginBottom="150dp"
+        android:src="@mipmap/ic_launcher_round">
 
     </ImageView>-->
-    <TextView
+  <!--  <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/appnam"
@@ -32,16 +33,16 @@
         android:textStyle="bold"
         tools:ignore="MissingConstraints">
 
-    </TextView>
+    </TextView>-->
 
     <TextView
         android:id="@+id/appnam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/progressBar"
-        android:layout_marginBottom="199dp"
+        android:layout_below="@+id/applogo"
+        android:layout_marginBottom="0dp"
         android:text="@string/app_name"
-        android:textColor="#00BCD4"
+        android:textColor="#4CAF50"
         android:textAlignment="center"
         android:textSize="80dp"
         android:fontFamily="cursive"
@@ -49,7 +50,15 @@
         tools:ignore="MissingConstraints">
 
     </TextView>
+<ImageView
+    android:id="@+id/svgspl"
+    android:layout_width="match_parent"
+    android:layout_below="@+id/appnam"
+    android:layout_height="wrap_content"
+    android:background="@drawable/splashsvg"
+    >
 
+</ImageView>
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
