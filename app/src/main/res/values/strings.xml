@@ -34,7 +34,18 @@
         <item>government agency</item>
         <item>Etc</item>
     </string-array>
+    <string-array name="area_unit_array">
+        <item>hectares</item>
+        <item>acres</item>
+        <item>dismil</item>
+    </string-array>
 
+    <string-array name="quantity_unit_array">
+        <item>kg</item>
+        <item>tons</item>
+        <item>pieces</item>
+        <item>liters</item>
+    </string-array>
 
     <string name="don_t_have_an_account_click_here">Don\'t have an account? Click Here</string>
     <string name="already_registered_click_here">Already Registered? Click Here</string>

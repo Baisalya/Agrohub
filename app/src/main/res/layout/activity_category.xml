@@ -36,21 +36,26 @@
             android:background="@drawable/categorystl">
         </TextView>
         <TextView
+            android:id="@+id/infoprogressbar"
             android:layout_width="90dp"
             android:layout_height="3dp"
-            android:background="@drawable/custom_progressbar">
+            android:background="@drawable/custom_progressbar"
+           >
         </TextView>
 
         <TextView
+            android:id="@+id/infoico"
             android:layout_width="24dp"
             android:layout_height="25dp"
             android:background="@drawable/infobw" />
         <TextView
+            android:id="@+id/dateprogressbar"
             android:layout_width="90dp"
             android:layout_height="3dp"
             android:background="@drawable/custom_progressbar">
         </TextView>
         <TextView
+            android:id="@+id/dateico"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/datebw">
@@ -84,16 +89,29 @@
         </Button>
 
 
-    </LinearLayout>
 
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/next_btn"/>
     <Button
         android:id="@+id/next_btn"
         android:layout_width="121dp"
         android:layout_height="68dp"
         android:layout_gravity="end"
         android:background="@drawable/leaf"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:text="@string/next_btn"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
+    </RelativeLayout>
 </LinearLayout>

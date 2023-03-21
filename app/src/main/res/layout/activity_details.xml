@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
+    android:padding="10dp"
     tools:context=".cropcalender.DetailsActivity">
-    <com.google.android.material.appbar.MaterialToolbar
+    <!-- <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -16,11 +17,11 @@
         app:title="Details"
         app:navigationIcon="@drawable/ic_outline_arrow_back_24"
         app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp" />
+        app:contentInsetEnd="0dp" />-->
     <!-- MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
      setSupportActionBar(topAppBar);
      getSupportActionBar().setDisplayHomeAsUpEnabled(true);-->
-    <LinearLayout
+    <!--   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
@@ -58,7 +59,21 @@
         </TextView>
 
 
-    </LinearLayout>
+    </LinearLayout>-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:hint="Project Title"
+        android:textColorHint="@color/black"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:hint="Project Description"
+        android:textColorHint="@color/black"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -69,7 +84,6 @@
             android:id="@+id/season_spinner"
             android:layout_width="200dp"
             android:layout_height="25dp"
-            android:layout_marginStart="5dp"
             android:background="@drawable/spinner_background"
             android:spinnerMode="dropdown"
 

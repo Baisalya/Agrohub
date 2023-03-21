@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".cropcalender.CreateCalenderActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/start_date"
+                android:text="Crop Start Date:"
+                android:textColor="@color/black"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/start_date_edittext"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/start_date"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/formborder"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/end_date"
+                android:text="Crop End Date:"
+                android:layout_width="200dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/end_date_edittext"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/end_date"
+                android:layout_toRightOf="@+id/start_date_edittext"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/formborder"
+                android:textSize="16sp" />
+        </RelativeLayout>
+        <TextView
+            android:text="Area:"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/area_edittext"
+            android:layout_width="match_parent"
+            android:background="@drawable/formborder"
+            android:layout_height="35dp"/>
+
+        <Spinner
+            android:id="@+id/area_unit_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Quantity:"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/quantity_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/formborder"/>
+
+        <Spinner
+            android:id="@+id/quantity_unit_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>
