@@ -61,6 +61,7 @@
 
     </LinearLayout>-->
     <EditText
+        android:id="@+id/projecttitle_EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -68,6 +69,7 @@
         android:textColorHint="@color/black"
         />
     <EditText
+        android:id="@+id/projectdescription_Edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"

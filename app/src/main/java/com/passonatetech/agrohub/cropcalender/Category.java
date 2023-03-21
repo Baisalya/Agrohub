@@ -20,12 +20,15 @@ public class Category extends AppCompatActivity {
    Button nxtbtn;
     private ViewPager viewPager;
     private SlidePagerAdapter pagerAdapter;
-
+    private Button createnew,existing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // setContentView(R.layout.activity_details);
         setContentView(R.layout.activity_category);
         nxtbtn=findViewById(R.id.next_btn);
+        createnew=findViewById(R.id.cre_new);
+        existing=findViewById(R.id.existing_pro);
         viewPager = findViewById(R.id.view_pager);
         List<View> views = new ArrayList<>();
         pagerAdapter = new SlidePagerAdapter(this);

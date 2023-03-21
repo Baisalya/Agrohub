@@ -71,20 +71,26 @@
         android:layout_gravity="center"
         android:gravity="center">
         <Button
-            android:layout_width="130dp"
+            android:id="@+id/cre_new"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Create New"
+            android:background="@color/btn"
             android:textSize="12sp"
             android:textStyle="bold">
 
         </Button>
+        <Space
+            android:layout_width="6dp"
+            android:layout_height="match_parent"/>
         <Button
+            android:id="@+id/existing_pro"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Select Existing"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:enabled="false">
+            android:background="@color/btn">
 
         </Button>
 
