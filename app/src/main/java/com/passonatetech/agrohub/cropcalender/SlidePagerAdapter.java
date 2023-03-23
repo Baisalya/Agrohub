@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -25,7 +27,11 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.passonatetech.agrohub.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class SlidePagerAdapter extends PagerAdapter {
     private Context mContext;
@@ -37,6 +43,9 @@ public class SlidePagerAdapter extends PagerAdapter {
     public SlidePagerAdapter(Context context) {
         mContext = context;
     }
+    CropCalender cropCalender=new CropCalender();
+
+
 
     @Override
     public int getCount() {
@@ -200,19 +209,25 @@ public class SlidePagerAdapter extends PagerAdapter {
                         mContext, R.array.quantity_unit_array, android.R.layout.simple_spinner_item);
                 QuantityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Quantityspinner.setAdapter(QuantityAdapter);
-                //date edit text logic
+                //choose date from cropCalender
+               // String selectedDate = cropCalender.getSelectedDate();
+                // convert the selected date to a String format
 
+
+                //Startdate.setText(selectedDate);
+                //date edit text logic
                 DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
                     // Get the window of the DatePickerDialog
 
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         // Set the chosen date on the EditText view
-                        String dateString = (monthOfYear + 1) + "/" + dayOfMonth + "/" + year;
+                        String dateString = dayOfMonth+ "/" + (monthOfYear + 1)  + "/" + year;
                         ((EditText)view.getTag()).setText(dateString);
                     }
                 };
                 //start Date
+
                 Startdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -241,6 +256,17 @@ public class SlidePagerAdapter extends PagerAdapter {
                                 Calendar.getInstance().get(Calendar.MONTH),
                                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
                         );
+                        // Set the minimum date for the end date to be the same as the start date
+                        if (Startdate.getText().length() > 0) {
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                            try {
+                                Date startDate = sdf.parse(Startdate.getText().toString());
+                                long minDate = startDate.getTime();
+                                datePickerDialog.getDatePicker().setMinDate(minDate);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                        }
 
                         datePickerDialog.getDatePicker().setTag(v);
                         datePickerDialog.show();
@@ -256,8 +282,15 @@ public class SlidePagerAdapter extends PagerAdapter {
 
                         String projTitle = protitle.getText().toString().trim();
                         String projDesc = proj_desc.getText().toString().trim();
+                        String seasonspinner = seasonSpinner.getSelectedItem().toString();
+                        String typofcrop = categorySpinner.getSelectedItem().toString();
+                        String cropname = typeSpinner.getSelectedItem().toString();
                         String areaSize = Areaedittext.getText().toString().trim();
                         String cropQuantity=Quantitytext.getText().toString().trim();
+                        String startDate = Startdate.getText().toString().trim();
+                        String endDate = EndDate.getText().toString().trim();
+                        String areaSpinnerValue = Areaspinner.getSelectedItem().toString();
+                        String quantitySpinnerValue = Quantityspinner.getSelectedItem().toString();
                         //date
 
                         // If all fields have been filled out, submit the form
@@ -269,10 +302,17 @@ public class SlidePagerAdapter extends PagerAdapter {
 
                             // Add the values as extras to the intent
 
-                            intent.putExtra("projDesc", projDesc);
+                            intent.putExtra("seasonspinner", seasonspinner);
+                            intent.putExtra("typofcrop", typofcrop);
+                            intent.putExtra("cropname", cropname);
                             intent.putExtra("projTitle", projTitle);
                             intent.putExtra("areaSize", areaSize);
+                            intent.putExtra("areaSize", areaSize);
                             intent.putExtra("cropQuantity",cropQuantity);
+                            intent.putExtra("startDate", startDate);
+                            intent.putExtra("endDate", endDate);
+                            intent.putExtra("areaSpinnerValue", areaSpinnerValue);
+                            intent.putExtra("quantitySpinnerValue", quantitySpinnerValue);
 
                             // Start the ListFormActivity
                             mContext.startActivity(intent);
@@ -300,6 +340,9 @@ public class SlidePagerAdapter extends PagerAdapter {
         String projDesc = proj_desc.getText().toString().trim();
         String areaSize = Areaedittext.getText().toString().trim();
         String cropQuantity=Quantitytext.getText().toString().trim();
+        String startDate = Startdate.getText().toString().trim();
+        String endDate = EndDate.getText().toString().trim();
+
         if (TextUtils.isEmpty(projTitle)) {
             protitle.setError("Title cannot be empty");
             return false;
