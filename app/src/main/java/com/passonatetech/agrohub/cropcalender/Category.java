@@ -110,7 +110,14 @@ public class Category extends AppCompatActivity {
        /* MyPagerAdapter adapter = new MyPagerAdapter(views);
         viewPager.setAdapter(adapter);*/
 
-
+existing.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent intent=new Intent(Category.this,addtask.class);
+        startActivity(intent);
+        finish();
+    }
+});
 
 
         nxtbtn.setOnClickListener(new View.OnClickListener() {
