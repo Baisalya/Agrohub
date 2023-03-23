@@ -1,10 +1,12 @@
 package com.passonatetech.agrohub.cropcalender;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,9 +24,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.passonatetech.agrohub.R;
 
+import java.util.Calendar;
+
 public class SlidePagerAdapter extends PagerAdapter {
     private Context mContext;
-    private EditText protitle,proj_desc,Areaedittext,Quantitytext;
+    private EditText protitle,proj_desc,Areaedittext,Quantitytext,Startdate,EndDate;
+    int mYear, mMonth, mDay;
+    DatePickerDialog datePickerDialog;
     private Spinner  seasonSpinner,categorySpinner,typeSpinner,Areaspinner,Quantityspinner;
     private TextView errorMessageTextView;
     public SlidePagerAdapter(Context context) {
@@ -175,8 +181,8 @@ public class SlidePagerAdapter extends PagerAdapter {
                 container.addView(view);
                  Areaspinner=view.findViewById(R.id.area_unit_spinner);
                  Quantityspinner=view.findViewById(R.id.quantity_unit_spinner);
-                DatePicker Startdate=view.findViewById(R.id.start_date_edittext);
-                DatePicker EndDate=view.findViewById(R.id.end_date_edittext);
+                 Startdate=view.findViewById(R.id.start_date_edittext);
+                 EndDate=view.findViewById(R.id.end_date_edittext);
                    Areaedittext=view.findViewById(R.id.area_edittext);
                    Quantitytext=view.findViewById(R.id.quantity_edittext);
                 String AreaSize=Areaedittext.getText().toString().trim();
@@ -193,8 +199,51 @@ public class SlidePagerAdapter extends PagerAdapter {
                         mContext, R.array.quantity_unit_array, android.R.layout.simple_spinner_item);
                 QuantityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Quantityspinner.setAdapter(QuantityAdapter);
-                //boolean logic valiadator
+                //date edit text logic
 
+                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        // Set the chosen date on the EditText view
+                        String dateString = (monthOfYear + 1) + "/" + dayOfMonth + "/" + year;
+                        ((EditText)view.getTag()).setText(dateString);
+                    }
+                };
+                //start Date
+                Startdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Create a DatePickerDialog for the start date
+                        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                                mContext,
+                                dateSetListener,
+                                Calendar.getInstance().get(Calendar.YEAR),
+                                Calendar.getInstance().get(Calendar.MONTH),
+                                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                        );
+
+                        datePickerDialog.getDatePicker().setTag(v);
+                        datePickerDialog.show();
+                    }
+                });
+                //end date
+                EndDate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Create a DatePickerDialog for the start date
+                        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                                mContext,
+                                dateSetListener,
+                                Calendar.getInstance().get(Calendar.YEAR),
+                                Calendar.getInstance().get(Calendar.MONTH),
+                                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+                        );
+
+                        datePickerDialog.getDatePicker().setTag(v);
+                        datePickerDialog.show();
+                    }
+                });
                 ///logic for addtask btn click
                 addtask.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -207,7 +256,8 @@ public class SlidePagerAdapter extends PagerAdapter {
                         String projDesc = proj_desc.getText().toString().trim();
                         String areaSize = Areaedittext.getText().toString().trim();
                         String cropQuantity=Quantitytext.getText().toString().trim();
-                        //
+                        //date
+
                         // If all fields have been filled out, submit the form
                         if (allFieldsFilled) {
                             //submitForm();

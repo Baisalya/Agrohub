@@ -24,14 +24,18 @@
                 android:layout_alignParentLeft="true"
                 android:textSize="16sp" />
 
-            <DatePicker
+            <EditText
                 android:id="@+id/start_date_edittext"
                 android:layout_width="200dp"
                 android:layout_height="55dp"
-                android:layout_toRightOf="@+id/end_date_edittext"
                 android:layout_below="@+id/start_date"
                 android:layout_marginLeft="2dp"
-                android:textSize="16sp" />
+                android:inputType="none"
+                android:focusable="false"
+                android:textSize="16sp"
+                android:hint="01/01/2000"
+                android:textColorHint="@color/inactive"
+                android:textColor="@color/btn"/>
 
             <TextView
                 android:id="@+id/end_date"
@@ -41,12 +45,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:textSize="16sp" />
-            <DatePicker
+            <EditText
                 android:id="@+id/end_date_edittext"
                 android:layout_width="200dp"
                 android:layout_height="55dp"
                 android:layout_below="@id/end_date"
+                android:layout_toRightOf="@+id/start_date_edittext"
+                android:inputType="none"
+                android:focusable="false"
                 android:layout_marginRight="2dp"
+                android:hint="01/01/2000"
+                android:textColorHint="@color/inactive"
+                android:textColor="@color/btn"
                 android:textSize="16sp" />
 
         <TextView
@@ -63,7 +73,9 @@
             android:background="@drawable/formborder"
             android:layout_height="55dp"
             android:layout_below="@+id/areatxt"
-            android:layout_toLeftOf="@id/area_unit_spinner">
+            android:layout_toLeftOf="@id/area_unit_spinner"
+
+            android:textColor="@color/black">
 
         </EditText>
 
@@ -89,7 +101,8 @@
             android:layout_height="55dp"
             android:background="@drawable/formborder"
             android:layout_below="@+id/qty_view"
-            android:layout_toLeftOf="@id/quantity_unit_spinner"/>
+            android:layout_toLeftOf="@id/quantity_unit_spinner"
+            android:textColor="@color/black"/>
 
         <Spinner
             android:id="@+id/quantity_unit_spinner"
@@ -105,9 +118,10 @@
 
 <Button
     android:id="@+id/addtask"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
     android:background="@drawable/addtask_btn"
+
     android:foregroundGravity="center"
     android:layout_gravity="center"/>
     <TextView
