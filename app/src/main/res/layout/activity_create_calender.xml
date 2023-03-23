@@ -27,7 +27,7 @@
             <DatePicker
                 android:id="@+id/start_date_edittext"
                 android:layout_width="200dp"
-                android:layout_height="35dp"
+                android:layout_height="55dp"
                 android:layout_toRightOf="@+id/end_date_edittext"
                 android:layout_below="@+id/start_date"
                 android:layout_marginLeft="2dp"
@@ -44,7 +44,7 @@
             <DatePicker
                 android:id="@+id/end_date_edittext"
                 android:layout_width="200dp"
-                android:layout_height="35dp"
+                android:layout_height="55dp"
                 android:layout_below="@id/end_date"
                 android:layout_marginRight="2dp"
                 android:textSize="16sp" />
@@ -61,7 +61,7 @@
             android:id="@+id/area_edittext"
             android:layout_width="match_parent"
             android:background="@drawable/formborder"
-            android:layout_height="35dp"
+            android:layout_height="55dp"
             android:layout_below="@+id/areatxt"
             android:layout_toLeftOf="@id/area_unit_spinner">
 
@@ -70,8 +70,9 @@
         <Spinner
             android:id="@+id/area_unit_spinner"
             android:layout_width="90dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_below="@+id/areatxt"
+            android:background="@drawable/spinner_background"
             android:layout_alignParentEnd="true"/>
 
         <TextView
@@ -85,7 +86,7 @@
         <EditText
             android:id="@+id/quantity_edittext"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="55dp"
             android:background="@drawable/formborder"
             android:layout_below="@+id/qty_view"
             android:layout_toLeftOf="@id/quantity_unit_spinner"/>
@@ -93,21 +94,31 @@
         <Spinner
             android:id="@+id/quantity_unit_spinner"
             android:layout_width="90dp"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_alignParentEnd="true"
+            android:background="@drawable/spinner_background"
             android:layout_below="@+id/qty_view"/>
         </RelativeLayout>
 
     </LinearLayout>
 
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
+<Button
     android:id="@+id/addtask"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     android:background="@drawable/addtask_btn"
     android:foregroundGravity="center"
     android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/errormsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Field Required To Field "
+       android:layout_gravity="center"
+        android:textColor="#B71C1C"
+        android:textSize="16dp"
+        android:visibility="gone"/>
 
 
 

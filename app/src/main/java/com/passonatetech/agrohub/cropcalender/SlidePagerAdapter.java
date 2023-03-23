@@ -1,15 +1,21 @@
 package com.passonatetech.agrohub.cropcalender;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import androidx.viewpager.widget.ViewPager;
 
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -18,7 +24,9 @@ import com.passonatetech.agrohub.R;
 
 public class SlidePagerAdapter extends PagerAdapter {
     private Context mContext;
-
+    private EditText protitle,proj_desc,Areaedittext,Quantitytext;
+    private Spinner  seasonSpinner,categorySpinner,typeSpinner,Areaspinner,Quantityspinner;
+    private TextView errorMessageTextView;
     public SlidePagerAdapter(Context context) {
         mContext = context;
     }
@@ -37,19 +45,28 @@ public class SlidePagerAdapter extends PagerAdapter {
             case 0:
                 view = inflater.inflate(R.layout.activity_addtask, container, false);
                 container.addView(view);
+                Button addtodo=view.findViewById(R.id.addtask);
+                addtodo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                      // container.setCurrentItem(1, true);
+
+                    }
+                });
+                // Add the view to the container
 
                 return view;
 
             case 1:
                 view = inflater.inflate(R.layout.activity_details, container, false);
                 container.addView(view);
-                Spinner seasonSpinner = view.findViewById(R.id.season_spinner);
-                Spinner categorySpinner = view.findViewById(R.id.types_of_crop_spinner);
-                Spinner typeSpinner = view.findViewById(R.id.crop_name_spinner);
-                EditText protitle=view.findViewById(R.id.projecttitle_EditText);
-                EditText proj_desc=view.findViewById(R.id.projectdescription_Edittext);
-                String title = protitle.getText().toString().trim();
-                String desc = proj_desc.getText().toString().trim();
+                 seasonSpinner = view.findViewById(R.id.season_spinner);
+                 categorySpinner = view.findViewById(R.id.types_of_crop_spinner);
+                 typeSpinner = view.findViewById(R.id.crop_name_spinner);
+                 protitle=view.findViewById(R.id.projecttitle_EditText);
+                 proj_desc=view.findViewById(R.id.projectdescription_Edittext);
+                 //String title = protitle.getText().toString().trim();
+                 //String desc = proj_desc.getText().toString().trim();
                 // ArrayAdapter for the season spinner
                 ArrayAdapter<CharSequence> seasonAdapter = ArrayAdapter.createFromResource(
                         mContext, R.array.seasons, android.R.layout.simple_spinner_item);
@@ -150,29 +167,22 @@ public class SlidePagerAdapter extends PagerAdapter {
                         //
                     }
                 });
-                if (TextUtils.isEmpty(title)) {
-                    protitle.setError("Title cannot be empty");
-                     // stop further execution
-                }
 
-                if (TextUtils.isEmpty(desc)) {
-                    proj_desc.setError("Description cannot be empty");
-                     // stop further execution
-                }
                     return view;
 
             case 2:
                 view = inflater.inflate(R.layout.activity_create_calender, container, false);
                 container.addView(view);
-                Spinner Areaspinner=view.findViewById(R.id.area_unit_spinner);
-                Spinner Quantityspinner=view.findViewById(R.id.quantity_unit_spinner);
+                 Areaspinner=view.findViewById(R.id.area_unit_spinner);
+                 Quantityspinner=view.findViewById(R.id.quantity_unit_spinner);
                 DatePicker Startdate=view.findViewById(R.id.start_date_edittext);
                 DatePicker EndDate=view.findViewById(R.id.end_date_edittext);
-                EditText   Areaedittext=view.findViewById(R.id.area_edittext);
-                EditText   Quantitytext=view.findViewById(R.id.quantity_edittext);
+                   Areaedittext=view.findViewById(R.id.area_edittext);
+                   Quantitytext=view.findViewById(R.id.quantity_edittext);
                 String AreaSize=Areaedittext.getText().toString().trim();
                 String Quantity=Quantitytext.getText().toString().trim();
-                FloatingActionButton addtask=view.findViewById(R.id.addtask);
+                Button addtask=view.findViewById(R.id.addtask);
+                errorMessageTextView=view.findViewById(R.id.errormsg);
                 ///Array adptor for Area
                 ArrayAdapter<CharSequence> AreaAdapter = ArrayAdapter.createFromResource(
                         mContext, R.array.area_unit_array, android.R.layout.simple_spinner_item);
@@ -183,10 +193,46 @@ public class SlidePagerAdapter extends PagerAdapter {
                         mContext, R.array.quantity_unit_array, android.R.layout.simple_spinner_item);
                 QuantityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Quantityspinner.setAdapter(QuantityAdapter);
+                //boolean logic valiadator
+
                 ///logic for addtask btn click
                 addtask.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        // Check whether all required fields have been filled out
+                        boolean allFieldsFilled = checkAllFieldsFilled();
+                        // Get the values from the EditText fields
+
+                        String projTitle = protitle.getText().toString().trim();
+                        String projDesc = proj_desc.getText().toString().trim();
+                        String areaSize = Areaedittext.getText().toString().trim();
+                        String cropQuantity=Quantitytext.getText().toString().trim();
+                        //
+                        // If all fields have been filled out, submit the form
+                        if (allFieldsFilled) {
+                            //submitForm();
+
+                            // Create an intent to start the ListFormActivity
+                            Intent intent = new Intent(mContext, addtask.class);
+
+                            // Add the values as extras to the intent
+
+                            intent.putExtra("projDesc", projDesc);
+                            intent.putExtra("projTitle", projTitle);
+                            intent.putExtra("areaSize", areaSize);
+                            intent.putExtra("cropQuantity",cropQuantity);
+
+                            // Start the ListFormActivity
+                            mContext.startActivity(intent);
+                        } else {
+                            // Display error message
+                            errorMessageTextView.setVisibility(View.VISIBLE);
+                        }
+
+
+                    }
+
+                    private void submitForm() {
 
                     }
                 });
@@ -196,6 +242,33 @@ public class SlidePagerAdapter extends PagerAdapter {
 
         return null;
     }
+    //boolean form validation
+    private boolean checkAllFieldsFilled() {
+        String projTitle = protitle.getText().toString().trim();
+        String projDesc = proj_desc.getText().toString().trim();
+        String areaSize = Areaedittext.getText().toString().trim();
+        String cropQuantity=Quantitytext.getText().toString().trim();
+        if (TextUtils.isEmpty(projTitle)) {
+            protitle.setError("Title cannot be empty");
+            return false;
+        }
+
+        if (TextUtils.isEmpty(projDesc)) {
+            proj_desc.setError("Description cannot be empty");
+            return false;
+        }
+        if (TextUtils.isEmpty(areaSize)) {
+            protitle.setError("Area cannot be empty");
+            return false;
+        }
+
+        if (TextUtils.isEmpty(cropQuantity)) {
+            proj_desc.setError("cropQuantity cannot be empty");
+            return false;
+        }
+        return true;
+    }
+
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
