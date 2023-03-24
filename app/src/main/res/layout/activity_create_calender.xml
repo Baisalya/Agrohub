@@ -73,6 +73,7 @@
             android:background="@drawable/formborder"
             android:layout_height="55dp"
             android:layout_below="@+id/areatxt"
+            android:inputType="number"
             android:layout_toLeftOf="@id/area_unit_spinner"
 
             android:textColor="@color/black">

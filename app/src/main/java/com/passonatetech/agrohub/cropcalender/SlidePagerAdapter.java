@@ -191,8 +191,8 @@ public class SlidePagerAdapter extends PagerAdapter {
                  Quantityspinner=view.findViewById(R.id.quantity_unit_spinner);
                  Startdate=view.findViewById(R.id.start_date_edittext);
                  EndDate=view.findViewById(R.id.end_date_edittext);
-                   Areaedittext=view.findViewById(R.id.area_edittext);
-                   Quantitytext=view.findViewById(R.id.quantity_edittext);
+                 Areaedittext=view.findViewById(R.id.area_edittext);
+                 Quantitytext=view.findViewById(R.id.quantity_edittext);
                 String AreaSize=Areaedittext.getText().toString().trim();
                 String Quantity=Quantitytext.getText().toString().trim();
                 Button addtask=view.findViewById(R.id.addtask);
@@ -202,6 +202,10 @@ public class SlidePagerAdapter extends PagerAdapter {
                         mContext, R.array.area_unit_array, android.R.layout.simple_spinner_item);
                 AreaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Areaspinner.setAdapter(AreaAdapter);
+                //
+                Areaspinner.setOnItemSelectedListener(new UnitItemSelectedListener());
+
+
                 //Array adpter for qantity
                 ArrayAdapter<CharSequence> QuantityAdapter = ArrayAdapter.createFromResource(
                         mContext, R.array.quantity_unit_array, android.R.layout.simple_spinner_item);
@@ -225,7 +229,6 @@ public class SlidePagerAdapter extends PagerAdapter {
                     }
                 };
                 //start Date
-
                 Startdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -414,6 +417,43 @@ public class SlidePagerAdapter extends PagerAdapter {
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
+    }
+
+    private class UnitItemSelectedListener implements AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+            String unit = parent.getItemAtPosition(position).toString();
+            String valueString = Areaedittext.getText().toString();
+            if (!valueString.isEmpty()) {
+                double inputValue = Double.parseDouble(valueString);
+                double convertedValue = convertValue(inputValue, unit);
+                Areaedittext.setText(String.format("%.2f", convertedValue));
+            }
+         /*   double inputValue = Double.parseDouble(Areaedittext.getText().toString());
+            double convertedValue = convertValue(inputValue, unit);
+            Areaedittext.setText(String.format("%.2f", convertedValue));*/
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private double convertValue(double value, String unit) {
+        double conversionFactor = 0.0;
+        switch (unit) {
+            case "Hectors":
+                conversionFactor = 1.0; // No conversion needed
+                break;
+            case "Acers":
+                conversionFactor = 2.47105;
+                break;
+            case "Dismil":
+                conversionFactor = 0.024711;
+                break;
+        }
+        return value * conversionFactor;
     }
 }
 

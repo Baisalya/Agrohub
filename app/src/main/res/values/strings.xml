@@ -35,9 +35,9 @@
         <item>Etc</item>
     </string-array>
     <string-array name="area_unit_array">
-        <item>hectares</item>
-        <item>acres</item>
-        <item>dismil</item>
+        <item>Hectors</item>
+        <item>Acers</item>
+        <item>Dismil</item>
     </string-array>
 
     <string-array name="quantity_unit_array">
