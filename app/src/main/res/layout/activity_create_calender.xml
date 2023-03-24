@@ -80,6 +80,7 @@
 
         </EditText>
 
+
         <Spinner
             android:id="@+id/area_unit_spinner"
             android:layout_width="90dp"
@@ -87,6 +88,20 @@
             android:layout_below="@+id/areatxt"
             android:background="@drawable/spinner_background"
             android:layout_alignParentEnd="true"/>
+            <Button
+                android:id="@+id/convtbtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/converter"
+                android:layout_below="@+id/area_unit_spinner"/>
+            <TextView
+                android:id="@+id/unitshow"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_below="@id/area_unit_spinner"
+                android:paddingRight="50dp"
+                android:textColor="@color/inactive"
+                android:layout_toRightOf="@+id/convtbtn"/>
 
         <TextView
             android:id="@+id/qty_view"
@@ -94,7 +109,7 @@
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/area_edittext"/>
+            android:layout_below="@+id/convtbtn"/>
 
         <EditText
             android:id="@+id/quantity_edittext"

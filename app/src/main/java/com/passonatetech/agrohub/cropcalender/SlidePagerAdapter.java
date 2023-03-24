@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -198,12 +199,51 @@ public class SlidePagerAdapter extends PagerAdapter {
                 Button addtask=view.findViewById(R.id.addtask);
                 errorMessageTextView=view.findViewById(R.id.errormsg);
                 ///Array adptor for Area
+                String[] units = {"Hectors", "Dismils", "Acres"};
+                Button convertButton=view.findViewById(R.id.convtbtn);
+                TextView output=view.findViewById(R.id.unitshow);
+                SpinnerAdapter spinnerAdapter = new SpinnerAdapter(mContext, units);
+                Areaspinner.setAdapter(spinnerAdapter);
+                convertButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String inputText = Areaedittext.getText().toString();
+                        if (TextUtils.isEmpty(inputText)) {
+                            Toast.makeText(mContext, "Please enter a value to convert", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        double inputValue = Double.parseDouble(inputText);
+                        String fromUnit = Areaspinner.getSelectedItem().toString();
+                        String toUnit;
+
+                        switch (fromUnit) {
+                            case "Hectors":
+                                toUnit = "Dismils";
+                                break;
+                            case "Dismils":
+                                toUnit = "Hectors";
+                                break;
+                            case "Acres":
+                                toUnit = "Hectors";
+                                break;
+                            default:
+                                toUnit = "Unknown";
+                                break;
+                        }
+
+                        double result = convertUnits(inputValue, fromUnit, toUnit);
+                        Areaedittext.setText(String.format("%.2f", result));
+                        output.setText(String.format("%.2f %s = %.2f %s", inputValue, fromUnit, result, toUnit));
+                    }
+                });
                 ArrayAdapter<CharSequence> AreaAdapter = ArrayAdapter.createFromResource(
                         mContext, R.array.area_unit_array, android.R.layout.simple_spinner_item);
                 AreaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Areaspinner.setAdapter(AreaAdapter);
+                //Areaspinner.setAdapter(AreaAdapter);
+
                 //
-                Areaspinner.setOnItemSelectedListener(new UnitItemSelectedListener());
+                /////Areaspinner.setOnItemSelectedListener(new UnitItemSelectedListener());
 
 
                 //Array adpter for qantity
@@ -235,15 +275,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                         // Create a DatePickerDialog for the start date
                         DatePickerDialog datePickerDialog = new DatePickerDialog(
                                 mContext,
-                                new DatePickerDialog.OnDateSetListener() {
-                                    @Override
-                                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                                        // Set the selected date in the Startdate EditText
-                                        Calendar calendar = Calendar.getInstance();
-                                        calendar.set(year, month, day);
-                                        Startdate.setText(DateFormat.getDateInstance().format(calendar.getTime()));
-                                    }
-                                },
+                                dateSetListener,
                                 Calendar.getInstance().get(Calendar.YEAR),
                                 Calendar.getInstance().get(Calendar.MONTH),
                                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
@@ -357,7 +389,17 @@ public class SlidePagerAdapter extends PagerAdapter {
                             intent.putExtra("endDate", endDate);
                             intent.putExtra("areaSpinnerValue", areaSpinnerValue);
                             intent.putExtra("quantitySpinnerValue", quantitySpinnerValue);*/
-
+// Show the values in a Toast message
+                            Toast.makeText(mContext,
+                                    "Project Title: " + projTitle + "\n" +
+                                            "Project Description: " + projDesc + "\n" +
+                                            "Season: " + seasonspinner + "\n" +
+                                            "Type of Crop: " + typofcrop + "\n" +
+                                            "Crop Name: " + cropname + "\n" +
+                                            "Area Size: " + areaSize + " " + areaSpinnerValue + "\n" +
+                                            "Crop Quantity: " + cropQuantity + " " + quantitySpinnerValue + "\n" +
+                                           "",
+                                    Toast.LENGTH_LONG).show();
                             // Start the ListFormActivity
                             mContext.startActivity(intent);
                         } else {
@@ -418,8 +460,8 @@ public class SlidePagerAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
-
-    private class UnitItemSelectedListener implements AdapterView.OnItemSelectedListener {
+               /*** Simple unit Convter Apply ***/
+   /* private class UnitItemSelectedListener implements AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
             String unit = parent.getItemAtPosition(position).toString();
@@ -429,18 +471,18 @@ public class SlidePagerAdapter extends PagerAdapter {
                 double convertedValue = convertValue(inputValue, unit);
                 Areaedittext.setText(String.format("%.2f", convertedValue));
             }
-         /*   double inputValue = Double.parseDouble(Areaedittext.getText().toString());
+         *//*   double inputValue = Double.parseDouble(Areaedittext.getText().toString());
             double convertedValue = convertValue(inputValue, unit);
-            Areaedittext.setText(String.format("%.2f", convertedValue));*/
+            Areaedittext.setText(String.format("%.2f", convertedValue));*//*
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
 
         }
-    }
+    }*/
 
-    private double convertValue(double value, String unit) {
+  /*  private double convertValue(double value, String unit) {
         double conversionFactor = 0.0;
         switch (unit) {
             case "Hectors":
@@ -454,6 +496,64 @@ public class SlidePagerAdapter extends PagerAdapter {
                 break;
         }
         return value * conversionFactor;
+    }*/
+    ////conveter unit
+    public double convertUnits(double value, String fromUnit, String toUnit) {
+        double result = 0;
+
+        switch (fromUnit) {
+            case "Hectors":
+                if (toUnit.equals("Dismils")) {
+                    result = value * 100;
+                } else if (toUnit.equals("Acres")) {
+                    result = value * 2.47105;
+                }
+                break;
+            case "Dismils":
+                if (toUnit.equals("Hectors")) {
+                    result = value / 100;
+                } else if (toUnit.equals("Acres")) {
+                    result = value * 0.0247105;
+                }
+                break;
+            case "Acres":
+                if (toUnit.equals("Hectors")) {
+                    result = value / 2.47105;
+                } else if (toUnit.equals("Dismils")) {
+                    result = value / 0.0247105;
+                }
+                break;
+        }
+
+        return result;
+    }
+    ///
+    public class SpinnerAdapter extends ArrayAdapter<String> {
+
+        private final String[] units;
+
+        public SpinnerAdapter(Context context, String[] units) {
+            super(context, android.R.layout.simple_spinner_dropdown_item, units);
+            this.units = units;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            TextView view = (TextView) super.getDropDownView(position, convertView, parent);
+            view.setText(units[position]);
+            return view;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView view = (TextView) super.getView(position, convertView, parent);
+            view.setText(units[position]);
+            return view;
+        }
     }
 }
+
+
+
+
 
