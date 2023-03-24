@@ -151,7 +151,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Fruits);
                             } else if (category.equals("Legumes")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Legumes);
-                            } else if (category.equals("SeedPlants")) {
+                            } else if (category.equals("Seed Plant")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_SeedPlants);
                             } else if (category.equals("Medicinal")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Medicinal);
@@ -165,7 +165,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_Fruits);
                             } else if (category.equals("Legumes")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_Legumes);
-                            } else if (category.equals("SeedPlants")) {
+                            } else if (category.equals("Seed Plant")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_SeedPlants);
                             } else if (category.equals("Cash Crops")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_CashCrops);
