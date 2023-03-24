@@ -1,5 +1,6 @@
 package com.passonatetech.agrohub.cropcalender;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -26,11 +27,17 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.passonatetech.agrohub.R;
+import com.passonatetech.agrohub.model.Reminder;
 
+import java.io.Serializable;
+import java.sql.Time;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class SlidePagerAdapter extends PagerAdapter {
@@ -44,6 +51,9 @@ public class SlidePagerAdapter extends PagerAdapter {
         mContext = context;
     }
     CropCalender cropCalender=new CropCalender();
+ //Reminder model
+ private List<Reminder> reminderList = new ArrayList<>();
+    Time midnight = Time.valueOf("00:00:00");
 
 
 
@@ -118,61 +128,49 @@ public class SlidePagerAdapter extends PagerAdapter {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                         String[] types = null;
-                        switch (position) {
-                            case 0: // Cereals
+                        String season = seasonSpinner.getSelectedItem().toString();
+                        String category = categorySpinner.getSelectedItem().toString();
+                        if (season.equals("") || category.equals("")) {
+                            types = new String[]{};
+                        } else if (season.equals("Rabi")) {
+                            if (category.equals("Cereals")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Rabi_Cereals);
-                                break;
-                            case 1: // Vegetables
-                                types = mContext.getResources().getStringArray(R.array.In_Rabi_vegetables);
-                                break;
-                            case 2: // Fruits
+                            } else if (category.equals("Vegetables")) {
+                                types =mContext. getResources().getStringArray(R.array.In_Rabi_vegetables);
+                            } else if (category.equals("Fruits")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Rabi_Fruits);
-                                break;
-                            case 3: // Legumes
+                            } else if (category.equals("Legumes")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Rabi_Legumes);
-                                break;
-                            case 4: // Cereals
+                            }
+                        } else if (season.equals("Kharif")) {
+                            if (category.equals("Cereals")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Cereals);
-                                break;
-                            case 5: // vegetables
+                            } else if (category.equals("Vegetables")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_vegetables);
-                                break;
-                            case 6: // Fruits
+                            } else if (category.equals("Fruits")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Fruits);
-                                break;
-                            case 7: // Legumes
-                                types =mContext. getResources().getStringArray(R.array.In_Kharif_Legumes);
-                                break;
-                            case 8: // SeedPlants
+                            } else if (category.equals("Legumes")) {
+                                types = mContext.getResources().getStringArray(R.array.In_Kharif_Legumes);
+                            } else if (category.equals("SeedPlants")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_SeedPlants);
-                                break;
-                            case 9: // Medicinal
+                            } else if (category.equals("Medicinal")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Kharif_Medicinal);
-                                break;
-                            case 10: //Cereals
+                            }
+                        } else if (season.equals("Zaid")) {
+                            if (category.equals("Cereals")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_Cereals);
-                                break;
-                            case 11: // vegetables
+                            } else if (category.equals("Vegetables")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_vegetables);
-                                break;
-                            case 12: // Fruits
+                            } else if (category.equals("Fruits")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_Fruits);
-                                break;
-                            case 13: // Legumes
+                            } else if (category.equals("Legumes")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_Legumes);
-                                break;
-                            case 14: // SeedPlants
+                            } else if (category.equals("SeedPlants")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_SeedPlants);
-                                break;
-                            case 15: // CashCrops
+                            } else if (category.equals("Cash Crops")) {
                                 types = mContext.getResources().getStringArray(R.array.In_Zaid_CashCrops);
-                                break;
-
-                            default:
-                                types = new String[]{};
-
+                            }
                         }
-
                         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(mContext.getApplicationContext(), android.R.layout.simple_spinner_item, types);
                         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         typeSpinner.setAdapter(categoryAdapter);
@@ -234,7 +232,15 @@ public class SlidePagerAdapter extends PagerAdapter {
                         // Create a DatePickerDialog for the start date
                         DatePickerDialog datePickerDialog = new DatePickerDialog(
                                 mContext,
-                                dateSetListener,
+                                new DatePickerDialog.OnDateSetListener() {
+                                    @Override
+                                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                        // Set the selected date in the Startdate EditText
+                                        Calendar calendar = Calendar.getInstance();
+                                        calendar.set(year, month, day);
+                                        Startdate.setText(DateFormat.getDateInstance().format(calendar.getTime()));
+                                    }
+                                },
                                 Calendar.getInstance().get(Calendar.YEAR),
                                 Calendar.getInstance().get(Calendar.MONTH),
                                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
@@ -287,11 +293,21 @@ public class SlidePagerAdapter extends PagerAdapter {
                         String cropname = typeSpinner.getSelectedItem().toString();
                         String areaSize = Areaedittext.getText().toString().trim();
                         String cropQuantity=Quantitytext.getText().toString().trim();
-                        String startDate = Startdate.getText().toString().trim();
+                        String startDates = Startdate.getText().toString().trim();
                         String endDate = EndDate.getText().toString().trim();
                         String areaSpinnerValue = Areaspinner.getSelectedItem().toString();
                         String quantitySpinnerValue = Quantityspinner.getSelectedItem().toString();
                         //date
+                        // Convert the startDateString to a Date object
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+                       // Parse the text of the Startdate EditText into a Date object
+                        Date startdate = null;
+                        try {
+                            startdate = dateFormat.parse(startDates);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
 
                         // If all fields have been filled out, submit the form
                         if (allFieldsFilled) {
@@ -299,10 +315,35 @@ public class SlidePagerAdapter extends PagerAdapter {
 
                             // Create an intent to start the ListFormActivity
                             Intent intent = new Intent(mContext, addtask.class);
+                            //Remider moddel
+                            Reminder reminder = new Reminder(projTitle, projDesc,seasonspinner,
+                                    typofcrop,cropname,areaSize,areaSpinnerValue,
+                                    cropQuantity,quantitySpinnerValue,
+                                    startdate, midnight);
+                            reminderList.add(reminder);
 
                             // Add the values as extras to the intent
+                            intent.putExtra("reminderList", (Serializable) reminderList);
 
-                            intent.putExtra("seasonspinner", seasonspinner);
+                           /* setResult(Activity.RESULT_OK, intent);
+                            super.onBackPressed();*/
+                            //
+                            // Concatenate the properties of the Reminder object as a string
+                            String reminderString = "Project Title: " + reminder.getName() + "\n" +
+                                    "Project Description: " + reminder.getDescription() + "\n" +
+                                    "Seasons: " + reminder.getSeasons() + "\n" +
+                                    "Type of Crops: " + reminder.getTypeofcrops() + "\n" +
+                                    "Name of Crop: " + reminder.getNameofCrop() + "\n" +
+                                    "Area: " + reminder.getArea() + "\n" +
+                                    "Area Size: " + reminder.getAreaSize() + "\n" +
+                                    "Quantity: " + reminder.getQuantity() + "\n" +
+                                    "Quantity Measure: " + reminder.getQuantitymesure() + "\n" +
+                                    "Start Date: " + reminder.getDate().toString() + "\n" +
+                                    "Time: " + reminder.getTime().toString();
+
+                        // Show the reminderString in a Toast
+                           // Toast.makeText(mContext, reminderString, Toast.LENGTH_SHORT).show();
+                          /*  intent.putExtra("seasonspinner", seasonspinner);
                             intent.putExtra("typofcrop", typofcrop);
                             intent.putExtra("cropname", cropname);
                             intent.putExtra("projTitle", projTitle);
@@ -312,7 +353,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                             intent.putExtra("startDate", startDate);
                             intent.putExtra("endDate", endDate);
                             intent.putExtra("areaSpinnerValue", areaSpinnerValue);
-                            intent.putExtra("quantitySpinnerValue", quantitySpinnerValue);
+                            intent.putExtra("quantitySpinnerValue", quantitySpinnerValue);*/
 
                             // Start the ListFormActivity
                             mContext.startActivity(intent);

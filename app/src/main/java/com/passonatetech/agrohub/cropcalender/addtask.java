@@ -1,6 +1,7 @@
 package com.passonatetech.agrohub.cropcalender;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -12,16 +13,27 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.passonatetech.agrohub.R;
+import com.passonatetech.agrohub.model.Reminder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class addtask extends AppCompatActivity {
-    private ListView listView;
+    //private ListView listView;
     private TextView emptyView;
-    private ArrayAdapter<String> adapter;
+   // private ArrayAdapter<String> adapter;
+    private RecyclerView remindersRecyclerView;
+    private ReminderAdapter reminderAdapter;
+    private List<Reminder> reminderList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtask);
-        RecyclerView recyclerView = findViewById(R.id.tasklist);
+      //  RecyclerView recyclerView = findViewById(R.id.tasklist);
+        remindersRecyclerView = findViewById(R.id.reminders_recyclerview);
+        reminderAdapter = new ReminderAdapter(reminderList);
+        remindersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        remindersRecyclerView.setAdapter(reminderAdapter);
   /*      listView = findViewById(R.id.tasklist);
         emptyView=findViewById(R.id.empty_view);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);

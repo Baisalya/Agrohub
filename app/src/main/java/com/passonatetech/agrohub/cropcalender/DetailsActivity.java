@@ -132,65 +132,54 @@ public class DetailsActivity extends AppCompatActivity {
 
             }
         });*/
+
         categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String[] types = null;
-                switch (position) {
-                    case 0: // Cereals
+                String season = seasonSpinner.getSelectedItem().toString();
+                String category = categorySpinner.getSelectedItem().toString();
+                if (season.equals("") || category.equals("")) {
+                    types = new String[]{};
+                } else if (season.equals("Rabi")) {
+                    if (category.equals("Cereals")) {
                         types = getResources().getStringArray(R.array.In_Rabi_Cereals);
-                        break;
-                    case 1: // Vegetables
+                    } else if (category.equals("Vegetables")) {
                         types = getResources().getStringArray(R.array.In_Rabi_vegetables);
-                        break;
-                    case 2: // Fruits
+                    } else if (category.equals("Fruits")) {
                         types = getResources().getStringArray(R.array.In_Rabi_Fruits);
-                        break;
-                    case 3: // Legumes
+                    } else if (category.equals("Legumes")) {
                         types = getResources().getStringArray(R.array.In_Rabi_Legumes);
-                        break;
-                    case 4: // Cereals
+                    }
+                } else if (season.equals("Kharif")) {
+                    if (category.equals("Cereals")) {
                         types = getResources().getStringArray(R.array.In_Kharif_Cereals);
-                        break;
-                    case 5: // vegetables
+                    } else if (category.equals("Vegetables")) {
                         types = getResources().getStringArray(R.array.In_Kharif_vegetables);
-                        break;
-                    case 6: // Fruits
+                    } else if (category.equals("Fruits")) {
                         types = getResources().getStringArray(R.array.In_Kharif_Fruits);
-                        break;
-                    case 7: // Legumes
+                    } else if (category.equals("Legumes")) {
                         types = getResources().getStringArray(R.array.In_Kharif_Legumes);
-                        break;
-                    case 8: // SeedPlants
+                    } else if (category.equals("SeedPlants")) {
                         types = getResources().getStringArray(R.array.In_Kharif_SeedPlants);
-                        break;
-                    case 9: // Medicinal
+                    } else if (category.equals("Medicinal")) {
                         types = getResources().getStringArray(R.array.In_Kharif_Medicinal);
-                        break;
-                    case 10: //Cereals
+                    }
+                } else if (season.equals("Zaid")) {
+                    if (category.equals("Cereals")) {
                         types = getResources().getStringArray(R.array.In_Zaid_Cereals);
-                        break;
-                    case 11: // vegetables
+                    } else if (category.equals("Vegetables")) {
                         types = getResources().getStringArray(R.array.In_Zaid_vegetables);
-                        break;
-                    case 12: // Fruits
+                    } else if (category.equals("Fruits")) {
                         types = getResources().getStringArray(R.array.In_Zaid_Fruits);
-                        break;
-                    case 13: // Legumes
+                    } else if (category.equals("Legumes")) {
                         types = getResources().getStringArray(R.array.In_Zaid_Legumes);
-                        break;
-                    case 14: // SeedPlants
+                    } else if (category.equals("SeedPlants")) {
                         types = getResources().getStringArray(R.array.In_Zaid_SeedPlants);
-                        break;
-                    case 15: // CashCrops
+                    } else if (category.equals("Cash Crops")) {
                         types = getResources().getStringArray(R.array.In_Zaid_CashCrops);
-                        break;
-
-                    default:
-                        types = new String[]{};
-
+                    }
                 }
-
                 ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, types);
                 categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 typeSpinner.setAdapter(categoryAdapter);
@@ -201,6 +190,7 @@ public class DetailsActivity extends AppCompatActivity {
                 //
             }
         });
+
 
 // ArrayAdapter for the crop name spinner
 
