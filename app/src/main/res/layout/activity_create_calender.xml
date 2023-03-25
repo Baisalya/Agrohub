@@ -65,6 +65,7 @@
                 android:inputType="none"
                 android:hint="choose a time"
                 android:textColorHint="@color/inactive"
+                android:textColor="@color/black"
                 android:focusable="false"
                 android:layout_below="@+id/start_date_edittext"/>
 

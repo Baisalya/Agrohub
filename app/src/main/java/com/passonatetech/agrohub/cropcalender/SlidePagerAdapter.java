@@ -202,7 +202,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                  Button addtask=view.findViewById(R.id.addtask);
                  errorMessageTextView=view.findViewById(R.id.errormsg);
                 ///Array adptor for Area
-                String[] units = {"Hectors", "Dismils", "Acres"};
+                String[] units = {"Hectares", "Dismils", "Acres"};
                 Button convertButton=view.findViewById(R.id.convtbtn);
                 TextView output=view.findViewById(R.id.unitshow);
                 SpinnerAdapter spinnerAdapter = new SpinnerAdapter(mContext, units);
@@ -221,14 +221,14 @@ public class SlidePagerAdapter extends PagerAdapter {
                         String toUnit;
 
                         switch (fromUnit) {
-                            case "Hectors":
+                            case "Hectares":
                                 toUnit = "Dismils";
                                 break;
                             case "Dismils":
-                                toUnit = "Hectors";
+                                toUnit = "Hectares";
                                 break;
                             case "Acres":
-                                toUnit = "Hectors";
+                                toUnit = "Hectares";
                                 break;
                             default:
                                 toUnit = "Unknown";
@@ -380,21 +380,21 @@ public class SlidePagerAdapter extends PagerAdapter {
 
                             // Create an intent to start the ListFormActivity
                             Intent intent = new Intent(mContext, addtask.class);
-                            //Remider moddel
+                           /* //Remider moddel
                             Reminder reminder = new Reminder(projTitle, projDesc,seasonspinner,
                                     typofcrop,cropname,areaSize,areaSpinnerValue,
                                     cropQuantity,quantitySpinnerValue,
                                     startdate, midnight);
-                            reminderList.add(reminder);
+                            reminderList.add(reminder);*/
 
                             // Add the values as extras to the intent
-                            intent.putExtra("reminderList", (Serializable) reminderList);
+                            /*intent.putExtra("reminderList", (Serializable) reminderList);*/
 
                            /* setResult(Activity.RESULT_OK, intent);
                             super.onBackPressed();*/
                             //
                             // Concatenate the properties of the Reminder object as a string
-                            String reminderString = "Project Title: " + reminder.getName() + "\n" +
+                         /*   String reminderString = "Project Title: " + reminder.getName() + "\n" +
                                     "Project Description: " + reminder.getDescription() + "\n" +
                                     "Seasons: " + reminder.getSeasons() + "\n" +
                                     "Type of Crops: " + reminder.getTypeofcrops() + "\n" +
@@ -404,7 +404,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                                     "Quantity: " + reminder.getQuantity() + "\n" +
                                     "Quantity Measure: " + reminder.getQuantitymesure() + "\n" +
                                     "Start Date: " + reminder.getDate().toString() + "\n" +
-                                    "Time: " + reminder.getTime().toString();
+                                    "Time: " + reminder.getTime().toString();*/
 
                         // Show the reminderString in a Toast
                            // Toast.makeText(mContext, reminderString, Toast.LENGTH_SHORT).show();
@@ -497,7 +497,7 @@ public class SlidePagerAdapter extends PagerAdapter {
         double result = 0;
 
         switch (fromUnit) {
-            case "Hectors":
+            case "Hectares":
                 if (toUnit.equals("Dismils")) {
                     result = value * 100;
                 } else if (toUnit.equals("Acres")) {
@@ -505,14 +505,14 @@ public class SlidePagerAdapter extends PagerAdapter {
                 }
                 break;
             case "Dismils":
-                if (toUnit.equals("Hectors")) {
+                if (toUnit.equals("Hectares")) {
                     result = value / 100;
                 } else if (toUnit.equals("Acres")) {
                     result = value * 0.0247105;
                 }
                 break;
             case "Acres":
-                if (toUnit.equals("Hectors")) {
+                if (toUnit.equals("Hectares")) {
                     result = value / 2.47105;
                 } else if (toUnit.equals("Dismils")) {
                     result = value / 0.0247105;
