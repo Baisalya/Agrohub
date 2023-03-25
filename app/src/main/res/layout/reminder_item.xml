@@ -1,26 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="5dp"
     android:orientation="vertical">
+<RelativeLayout
 
-    <TextView
-        android:id="@+id/reminder_name_textview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/logoside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+       <TextView
+           android:layout_width="50dp"
+           android:layout_height="80dp"
+           android:background="@drawable/reminderlo"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:layout_toStartOf="@+id/setngbtn"
+        android:layout_toEndOf="@+id/logoside"
+
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="1dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/reminder_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Project Name:"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/reminder_name_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/remindertime_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reminder Time:"
+        android:textSize="10sp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/reminder_date_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/reminder_time_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp" />
-
 </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/reminder_time_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repeat Date:"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        <TextClock
+            android:id="@+id/reminder_date_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/setngbtn"
+
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/baseline_menu_24"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contents"
+        android:layout_centerHorizontal="true"
+        android:text="Upcoming"/>
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>
