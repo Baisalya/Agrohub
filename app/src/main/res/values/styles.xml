@@ -12,4 +12,9 @@
         <item name="android:textColor">#F3F5F6</item>
 
     </style>
+    <style name="MyTimePickerDialogTheme" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:windowBackground">@drawable/timepicker_background</item>
+        <item name="android:colorControlActivated">@color/purple_500</item>
+    </style>
+
 </resources>

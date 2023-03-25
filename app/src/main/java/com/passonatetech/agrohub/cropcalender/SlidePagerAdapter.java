@@ -2,6 +2,7 @@ package com.passonatetech.agrohub.cropcalender;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
@@ -43,7 +45,7 @@ import java.util.Locale;
 
 public class SlidePagerAdapter extends PagerAdapter {
     private Context mContext;
-    private EditText protitle,proj_desc,Areaedittext,Quantitytext,Startdate,EndDate;
+    private EditText protitle,proj_desc,Areaedittext,Quantitytext,Startdate,EndDate,TimechooserEditText;
     int mYear, mMonth, mDay;
     DatePickerDialog datePickerDialog;
     private Spinner  seasonSpinner,categorySpinner,typeSpinner,Areaspinner,Quantityspinner;
@@ -194,10 +196,11 @@ public class SlidePagerAdapter extends PagerAdapter {
                  EndDate=view.findViewById(R.id.end_date_edittext);
                  Areaedittext=view.findViewById(R.id.area_edittext);
                  Quantitytext=view.findViewById(R.id.quantity_edittext);
-                String AreaSize=Areaedittext.getText().toString().trim();
-                String Quantity=Quantitytext.getText().toString().trim();
-                Button addtask=view.findViewById(R.id.addtask);
-                errorMessageTextView=view.findViewById(R.id.errormsg);
+                TimechooserEditText=view.findViewById(R.id.clockEditText);
+                 String AreaSize=Areaedittext.getText().toString().trim();
+                 String Quantity=Quantitytext.getText().toString().trim();
+                 Button addtask=view.findViewById(R.id.addtask);
+                 errorMessageTextView=view.findViewById(R.id.errormsg);
                 ///Array adptor for Area
                 String[] units = {"Hectors", "Dismils", "Acres"};
                 Button convertButton=view.findViewById(R.id.convtbtn);
@@ -243,7 +246,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                 //Areaspinner.setAdapter(AreaAdapter);
 
                 //
-                /////Areaspinner.setOnItemSelectedListener(new UnitItemSelectedListener());
+
 
 
                 //Array adpter for qantity
@@ -274,7 +277,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                     public void onClick(View v) {
                         // Create a DatePickerDialog for the start date
                         DatePickerDialog datePickerDialog = new DatePickerDialog(
-                                mContext,
+                                mContext,R.style.MyTimePickerDialogTheme,
                                 dateSetListener,
                                 Calendar.getInstance().get(Calendar.YEAR),
                                 Calendar.getInstance().get(Calendar.MONTH),
@@ -291,7 +294,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                     public void onClick(View v) {
                         // Create a DatePickerDialog for the start date
                         DatePickerDialog datePickerDialog = new DatePickerDialog(
-                                mContext,
+                                mContext,R.style.MyTimePickerDialogTheme,
                                 dateSetListener,
                                 Calendar.getInstance().get(Calendar.YEAR),
                                 Calendar.getInstance().get(Calendar.MONTH),
@@ -313,6 +316,33 @@ public class SlidePagerAdapter extends PagerAdapter {
                         datePickerDialog.show();
                     }
                 });
+                //time choose
+
+                TimechooserEditText.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Create a TimePickerDialog with current time as the default time
+                        Calendar currentTime = Calendar.getInstance();
+                        int hour = currentTime.get(Calendar.HOUR_OF_DAY);
+                        int minute = currentTime.get(Calendar.MINUTE);
+                        boolean is24HourFormat = android.text.format.DateFormat.is24HourFormat(mContext);
+                        TimePickerDialog timePickerDialog = new TimePickerDialog(mContext,R.style.MyTimePickerDialogTheme ,new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                                // Set the selected time to the TimechooserEditText view
+                                String timeFormat = is24HourFormat ? "%02d:%02d" : "%d:%02d %s";
+                                String amPm = selectedHour < 12 ? "AM" : "PM";
+                                selectedHour = is24HourFormat ? selectedHour : (selectedHour > 12 ? selectedHour - 12 : selectedHour);
+                                selectedHour = selectedHour == 0 ? 12 : selectedHour;
+                                TimechooserEditText.setText(String.format(timeFormat, selectedHour, selectedMinute, amPm));
+                            }
+                        }, hour, minute, is24HourFormat);
+
+                        // Show the TimePickerDialog
+                        timePickerDialog.show();
+                    }
+                });
+
                 ///logic for addtask btn click
                 addtask.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -461,42 +491,7 @@ public class SlidePagerAdapter extends PagerAdapter {
         return view == object;
     }
                /*** Simple unit Convter Apply ***/
-   /* private class UnitItemSelectedListener implements AdapterView.OnItemSelectedListener {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-            String unit = parent.getItemAtPosition(position).toString();
-            String valueString = Areaedittext.getText().toString();
-            if (!valueString.isEmpty()) {
-                double inputValue = Double.parseDouble(valueString);
-                double convertedValue = convertValue(inputValue, unit);
-                Areaedittext.setText(String.format("%.2f", convertedValue));
-            }
-         *//*   double inputValue = Double.parseDouble(Areaedittext.getText().toString());
-            double convertedValue = convertValue(inputValue, unit);
-            Areaedittext.setText(String.format("%.2f", convertedValue));*//*
-        }
 
-        @Override
-        public void onNothingSelected(AdapterView<?> adapterView) {
-
-        }
-    }*/
-
-  /*  private double convertValue(double value, String unit) {
-        double conversionFactor = 0.0;
-        switch (unit) {
-            case "Hectors":
-                conversionFactor = 1.0; // No conversion needed
-                break;
-            case "Acers":
-                conversionFactor = 2.47105;
-                break;
-            case "Dismil":
-                conversionFactor = 0.024711;
-                break;
-        }
-        return value * conversionFactor;
-    }*/
     ////conveter unit
     public double convertUnits(double value, String fromUnit, String toUnit) {
         double result = 0;
