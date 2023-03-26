@@ -97,6 +97,7 @@
             android:layout_height="55dp"
             android:layout_below="@+id/areatxt"
             android:background="@drawable/spinner_background"
+
             android:layout_alignParentEnd="true"/>
             <Button
                 android:id="@+id/convtbtn"

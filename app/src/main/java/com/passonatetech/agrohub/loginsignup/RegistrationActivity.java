@@ -30,6 +30,9 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText PasswordEditText;
     private Spinner AccountTypeSpinner;
     private static final int REQUEST_CODE_ALERT_BOX = 1;
+    private static final String ACCOUNT_TYPE_FARMER = "Farmer";
+    private static final String ACCOUNT_TYPE_ORGANIZATION = "Organization";
+    private static final String ACCOUNT_TYPE_EXPERT = "Expert";
     VideoView videoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,7 @@ public class RegistrationActivity extends AppCompatActivity {
         String password = PasswordEditText.getText().toString().trim();
         String accountType = AccountTypeSpinner.getSelectedItem().toString();
 
-        //  validation on  input
+        // Validate input
         if (TextUtils.isEmpty(name)) {
             NameEditText.setError("Please enter your name");
             return;
@@ -96,46 +99,31 @@ public class RegistrationActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             PasswordEditText.setError("Please enter your password");
             return;
-        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Organization") ){
-            orgalert();
-            //organisationSelected();
-            return;
-
-        }if(AccountTypeSpinner.getSelectedItem().toString().equals("Expert") ){
-            Expertalert() ;
-            //organisationSelected();
-            return;
-
         }
-
 
         if (TextUtils.isEmpty(accountType)) {
             Toast.makeText(this, "Please select your account type", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Perform registration logic here, depending on the selected account type
+        // Handle registration logic based on account type
         switch (accountType) {
-            case "Farmer":
-                // Register as a farmer
-                break;
-            case "Organization":
-                // Register as an organization
-                break;
-            case "Expert":
-                // Register as an expert
-                break;
+            case ACCOUNT_TYPE_FARMER:
+                register();
+                return;
+
+            case ACCOUNT_TYPE_ORGANIZATION:
+                showOrganizationRegistrationAlert();
+                return;
+
+            case ACCOUNT_TYPE_EXPERT:
+                showExpertRegistrationAlert();
+                return;
+
             default:
                 Toast.makeText(this, "Invalid account type selected", Toast.LENGTH_SHORT).show();
-                break;
+                return;
         }
-
-        //  successful registration
-        Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
-
-        // Finish the activity and return to the login screen
-        register();
-        finish();
     }
 
     /**** Routes methods  ****/
@@ -143,7 +131,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void register() {
         Intent intent = new Intent(RegistrationActivity.this, CropCalender.class);
         startActivity(intent);
-        finish();
+
     }
     private void returnlogin() {
         Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
@@ -156,13 +144,13 @@ public class RegistrationActivity extends AppCompatActivity {
         startActivity(intent);
     }*/
     //Alert box and route for organization.
-public void orgalert() {
-    String message = "Are You Sure !! Sign Up as an Organization";
-    Intent intent = new Intent(this, OrganizationRegistation.class);
-    AlertBox.showAlert(this, message, intent);
-}
+    private void showOrganizationRegistrationAlert() {
+        String message = "Are You Sure !! Sign Up as an Organization";
+        Intent intent = new Intent(this, OrganizationRegistation.class);
+        AlertBox.showAlert(this, message, intent);
+    }
     //Alert box and route for  expert.
-    public void Expertalert() {
+    private void showExpertRegistrationAlert() {
         String message = "Are You Sure !! Sign Up as an Expert";
         Intent intent = new Intent(this, ExpertRegistration.class);
         AlertBox.showAlert(this, message, intent);
