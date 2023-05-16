@@ -54,8 +54,8 @@ public class SlidePagerAdapter extends PagerAdapter {
         mContext = context;
     }
     CropCalender cropCalender=new CropCalender();
- //Reminder model
- private List<Reminder> reminderList = new ArrayList<>();
+    //Reminder model
+    private List<Reminder> reminderList = new ArrayList<>();
     Time midnight = Time.valueOf("00:00:00");
 
 

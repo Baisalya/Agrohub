@@ -33,7 +33,9 @@ public class RegistrationActivity extends AppCompatActivity {
     private static final String ACCOUNT_TYPE_FARMER = "Farmer";
     private static final String ACCOUNT_TYPE_ORGANIZATION = "Organization";
     private static final String ACCOUNT_TYPE_EXPERT = "Expert";
-    VideoView videoView;
+  private   VideoView videoView;
+  private   Uri videouri;
+    private int currentposition = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,14 +49,19 @@ public class RegistrationActivity extends AppCompatActivity {
         TextView alreadyRegister = findViewById(R.id.already_registered);
         /*** background   video        ****/
         videoView=findViewById(R.id.videoview);
-        String path="android.resource://com.passonatetech.agrohub/"+R.raw.regdvdo;
-        Uri u=Uri.parse(path);
-        videoView.setVideoURI(u);
-        videoView.start();
+        videouri=Uri.parse("android.resource://com.passonatetech.agrohub/"+R.raw.regdvdo);
+        videoView.setVideoURI(videouri);
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);
+                if (currentposition > 0) {
+                    videoView.seekTo(currentposition);
+                    videoView.start();
+                }else {
+                    mp.seekTo(0);
+                    videoView.start();
+                }
             }
         });
 
@@ -78,7 +85,24 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        videoView.resume();
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        videoView.suspend();
+        currentposition = videoView.getCurrentPosition();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        videoView.stopPlayback();
+    }
     private void registerUser() {
         String name = NameEditText.getText().toString().trim();
         String email = PhoneEditText.getText().toString().trim();
@@ -110,19 +134,19 @@ public class RegistrationActivity extends AppCompatActivity {
         switch (accountType) {
             case ACCOUNT_TYPE_FARMER:
                 register();
-                return;
+                break;
 
             case ACCOUNT_TYPE_ORGANIZATION:
                 showOrganizationRegistrationAlert();
-                return;
+                break;
 
             case ACCOUNT_TYPE_EXPERT:
                 showExpertRegistrationAlert();
-                return;
+                break;
 
             default:
                 Toast.makeText(this, "Invalid account type selected", Toast.LENGTH_SHORT).show();
-                return;
+
         }
     }
 
