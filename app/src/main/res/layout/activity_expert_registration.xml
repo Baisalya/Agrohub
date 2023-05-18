@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,209 +7,209 @@
     android:padding="0dp"
     android:background="@color/white"
     tools:context=".loginsignup.ExpertRegistration">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Join as an Expert"
             android:textColor="#16881A"
             android:textAlignment="center"
-            android:textSize="41dp"
+            android:textSize="41sp"
             android:fontFamily="cursive"
-            android:textStyle="bold"
-          />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/form"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-
         android:layout_marginTop="60dp">
 
-
-    <TextView
-        android:id="@+id/email_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:text="Email address:"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/email_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/email_text_view"
-        android:background="@drawable/formborder"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/black"/>
-    <TextView
-        android:id="@+id/contactinfo_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/email_edit_text"
-        android:text="Contact Info:"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/contactinfo_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/contactinfo_text_view"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/formborder"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/location_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/contactinfo_edit_text"
-
-        android:text="Location:"
-        android:textColor="@color/black"/>
-
-    <EditText
-        android:id="@+id/location_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/formborder"
-        android:textColor="@color/black"
-        android:layout_below="@+id/location_text_view" />
-
-    <TextView
-        android:id="@+id/expertise_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/location_edit_text"
-        android:text="Areas of expertise:"
-        android:textColor="@color/black"/>
-
-    <RadioGroup
-        android:id="@+id/expertise_radio_group"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/expertise_text_view"
-        android:textColor="@color/black">
-
-        <RadioButton
-            android:id="@+id/crop_management_radio_button"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/email_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:text="Crop management"
-            android:background="@color/btn"
-            android:textColor="@color/black"/>
+            android:text="Email address:"
+            android:textColor="@color/black" />
 
-        <RadioButton
-            android:id="@+id/livestock_production_radio_button"
+        <EditText
+            android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Livestock production"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="#4CAF50"
-            android:textColor="@color/black"/>
+            android:layout_height="40dp"
+            android:layout_below="@+id/email_text_view"
+            android:background="@drawable/formborder"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black" />
 
-        <RadioButton
-            android:id="@+id/soil_fertility_radio_button"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/contactinfo_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soil fertility"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="#4CAF50"
-            android:textColor="@color/black"/>
+            android:layout_below="@+id/email_edit_text"
+            android:text="Contact Info:"
+            android:textColor="@color/black" />
 
-        <RadioButton
-            android:id="@+id/irrigation_radio_button"
+        <EditText
+            android:id="@+id/contactinfo_edit_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Irrigation"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="#4CAF50"
-            android:textColor="@color/black"/>
+            android:layout_height="40dp"
+            android:layout_below="@+id/contactinfo_text_view"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/formborder"
+            android:textColor="@color/black" />
 
-        <RadioButton
-            android:id="@+id/pest_control_radio_button"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/location_text_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pest control"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="#4CAF50"
+            android:layout_below="@+id/contactinfo_edit_text"
+            android:text="Location:"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/location_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/location_text_view"
+            android:background="@drawable/formborder"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/expertise_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/location_edit_text"
+            android:text="Areas of expertise:"
+            android:textColor="@color/black" />
+
+        <RadioGroup
+            android:id="@+id/expertise_radio_group"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expertise_text_view"
+            android:textColor="@color/black">
+
+            <RadioButton
+                android:id="@+id/crop_management_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:text="Crop management"
+                android:background="@color/btn"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/livestock_production_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Livestock production"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#4CAF50"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/soil_fertility_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soil fertility"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#4CAF50"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/irrigation_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Irrigation"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#4CAF50"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/pest_control_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pest control"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#4CAF50"
+                android:textColor="@color/black" />
+
+            <RadioButton
+                android:id="@+id/farm_economics_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4CAF50"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:textColor="@color/black"
+                android:text="Farm economics" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/education_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expertise_radio_group"
+            android:text="Education and qualifications:"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/education_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/education_text_view"
             android:textColor="@color/black"
-           />
+            android:background="@drawable/formborder" />
 
-        <RadioButton
-            android:id="@+id/farm_economics_radio_button"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/password_edit_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#4CAF50"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:textColor="@color/black"
-            android:text="Farm economics" />
+            android:layout_below="@+id/education_edit_text"
+            android:text="Password"
+            android:textColor="@color/black" />
 
-    </RadioGroup>
+        <EditText
+            android:id="@+id/password_Edit_Text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/password_edit_text"
+            android:inputType="textPassword"
+            android:background="@drawable/formborder"
+            android:textColor="@color/black" />
 
-    <TextView
-        android:id="@+id/education_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/expertise_radio_group"
-        android:text="Education and qualifications:"
-        android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/education_edit_text"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/education_text_view"
-        android:textColor="@color/black"
-        android:background="@drawable/formborder"
-        />
-    <TextView
-        android:id="@+id/password_edit_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/education_edit_text"
-        android:text="Password"
-        android:textColor="@color/black"/>
+        <Button
+            android:id="@+id/submit"
+            android:text="Submit"
+            android:layout_width="90dp"
+            android:layout_below="@+id/password_Edit_Text"
+            android:textColor="@color/white"
+            android:background="@drawable/leaf"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="80dp" />
 
-    <EditText
-        android:id="@+id/password_Edit_Text"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/password_edit_text"
-        android:inputType="textPassword"
-        android:background="@drawable/formborder"
-        android:textColor="@color/black"/>
-    <Button
-        android:id="@+id/submit"
-        android:text="Submit"
-        android:layout_width="90dp"
-        android:layout_below="@+id/password_Edit_Text"
-        android:textColor="@color/white"
-        android:background="@drawable/leaf"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:textSize="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="80dp"/>
     </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/form"
-        android:background="@drawable/expert">
+        android:background="@drawable/expert" />
 
-    </TextView>
 </RelativeLayout>
