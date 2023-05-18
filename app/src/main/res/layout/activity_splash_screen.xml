@@ -20,20 +20,7 @@
         android:src="@mipmap/ic_launcher_round">
 
     </ImageView>-->
-  <!--  <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/appnam"
-        android:layout_marginBottom="199dp"
-        android:text="App Logo"
-        android:textColor="#009688"
-        android:textAlignment="center"
-        android:textSize="80dp"
 
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints">
-
-    </TextView>-->
 
     <TextView
         android:id="@+id/appnam"
@@ -54,15 +41,16 @@
     android:id="@+id/svgspl"
     android:layout_width="match_parent"
     android:layout_below="@+id/appnam"
+    android:scaleType="centerCrop"
     android:layout_height="wrap_content"
     android:background="@drawable/splashsvg"
+    android:alpha="0.9"
     >
 
 </ImageView>
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_alignParentBottom="true"
