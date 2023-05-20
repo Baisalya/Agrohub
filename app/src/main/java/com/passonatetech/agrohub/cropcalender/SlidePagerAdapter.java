@@ -419,7 +419,7 @@ public class SlidePagerAdapter extends PagerAdapter {
                             intent.putExtra("endDate", endDate);
                             intent.putExtra("areaSpinnerValue", areaSpinnerValue);
                             intent.putExtra("quantitySpinnerValue", quantitySpinnerValue);*/
-// Show the values in a Toast message
+                           // Show the values in a Toast message
                             Toast.makeText(mContext,
                                     "Project Title: " + projTitle + "\n" +
                                             "Project Description: " + projDesc + "\n" +
