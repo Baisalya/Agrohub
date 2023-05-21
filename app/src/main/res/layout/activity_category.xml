@@ -20,49 +20,52 @@
      setSupportActionBar(topAppBar);
      getSupportActionBar().setDisplayHomeAsUpEnabled(true);-->
     <LinearLayout
+        android:id="@+id/horizontalbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:layout_marginTop="50dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingHorizontal="30dp"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_width="90dp"
+            android:layout_width="0dp"
             android:layout_height="3dp"
-            android:background="@drawable/horizontalstepbar">
-        </TextView>
+            android:layout_weight="1"
+            android:background="@drawable/horizontalstepbar" />
+
         <TextView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/categorystl">
-        </TextView>
+            android:background="@drawable/categorystl" />
+
         <TextView
             android:id="@+id/infoprogressbar"
-            android:layout_width="90dp"
+            android:layout_width="0dp"
             android:layout_height="3dp"
-            android:background="@drawable/custom_progressbar"
-           >
-        </TextView>
+            android:layout_weight="1"
+            android:background="@drawable/custom_progressbar" />
 
         <TextView
             android:id="@+id/infoico"
             android:layout_width="24dp"
             android:layout_height="25dp"
             android:background="@drawable/infobw" />
+
         <TextView
             android:id="@+id/dateprogressbar"
-            android:layout_width="90dp"
+            android:layout_width="0dp"
             android:layout_height="3dp"
-            android:background="@drawable/custom_progressbar">
-        </TextView>
+            android:layout_weight="1"
+            android:background="@drawable/custom_progressbar" />
+
         <TextView
             android:id="@+id/dateico"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:background="@drawable/datebw">
-        </TextView>
-
-
+            android:background="@drawable/datebw" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/btnscreandselectContainer"
         android:layout_width="match_parent"
@@ -76,7 +79,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Create New"
-            android:background="@color/btn"
+            android:background="#064E09"
             android:textSize="12sp"
             android:textStyle="bold">
 

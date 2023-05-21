@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -70,6 +71,30 @@ public class RegistrationActivity extends AppCompatActivity {
                 R.array.account_types_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AccountTypeSpinner.setAdapter(adapter);
+
+        AccountTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String selectedAccountType = adapterView.getItemAtPosition(position).toString();
+                if (selectedAccountType.equals(ACCOUNT_TYPE_ORGANIZATION)) {
+                    showOrganizationRegistrationAlert();
+                } else if (selectedAccountType.equals(ACCOUNT_TYPE_EXPERT)) {
+                    showExpertRegistrationAlert();
+                } else {
+                    // Reset any previous registration logic
+                    AccountTypeSpinner.setSelection(getIndexOfAccountType(ACCOUNT_TYPE_FARMER));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // Reset spinner value to ACCOUNT_TYPE_FARMER
+                adapterView.setSelection(getIndexOfAccountType(ACCOUNT_TYPE_FARMER));
+            }
+        });
+
+
+
         //
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +128,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onDestroy();
         videoView.stopPlayback();
     }
+
     private void registerUser() {
         String name = NameEditText.getText().toString().trim();
         String email = PhoneEditText.getText().toString().trim();
@@ -179,4 +205,9 @@ public class RegistrationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ExpertRegistration.class);
         AlertBox.showAlert(this, message, intent);
     }
+    private int getIndexOfAccountType(String accountType) {
+        ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) AccountTypeSpinner.getAdapter();
+        return adapter.getPosition(accountType);
+    }
+
 }
